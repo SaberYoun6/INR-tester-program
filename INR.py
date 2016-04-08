@@ -12,25 +12,33 @@ isiref=0
 user_data_low = 0.0
 user_data_high = 0.0
 tester_data =0.0
-a= 
+a=0
+b=0
+c=0
 #### main program #####
 user_data_low = input{'prompt the users to enter a two digit number '}
 user_data_high = input{'prompt the users to enter a two digit number '}
 
-### i got to figure out how to make INR
+### i got to figure out how to make INR calculation
 
-
+inr = (pt/ptnom)^isitest
 
 
 
 #### isi 
 
+isitest = isiref*slope
 
 
 
-#### writing it to a file then adding it to that and printing it out
+
+### create the logirithm slope of a b and c
+
+if(a < b ):
 
 
 ### slope
 
 slope = (a-c)/(b-c)
+
+#### writing it to a file then adding it to that and printing it out
