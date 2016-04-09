@@ -3,6 +3,8 @@
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
 #### variables ##### 
+
+
 f=open(bloodtest.ace2,'r+a')
 inr = 0.0
 pt = 0.0
