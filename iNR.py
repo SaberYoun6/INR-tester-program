@@ -5,7 +5,7 @@
 #### variables ##### 
 
 
-f=open(bloodtest.ace2,'r+a')
+f=open(~/Documents/bloodtest,'r+a')
 inr = 0.0
 pt = 0.0
 ptnom = 0.0
@@ -43,7 +43,12 @@ while(i== 1 and n==exit):
 class int_nom_rat:
    def int_nom_ratio(self):
      inr = (pt/ptnom)^isitest
-    
+	 if (inr < user_data_low):
+		return (inr + "your level are to low")
+	 elif (user_data_low <= inr and inr <= user_data_high):
+	    return(inr + your levels are right on)
+	 else:
+		return(inr + your level are to high)
 
 #### isi 
 
@@ -56,7 +61,7 @@ isitest = isiref*slope
 class detla:
    def ___A__B___C(self):
      if(a < b ):
-        return 0
+        return
      else:
          slope = (a-c)/(b-c)
 
