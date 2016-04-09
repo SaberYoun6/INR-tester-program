@@ -52,4 +52,9 @@ if(a < b ):
 
 slope = (a-c)/(b-c)
 
+###search #####
+
+f.readline(size-1)
+
+
 #### writing it to a file then adding it to that and printing it out
