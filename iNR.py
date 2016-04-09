@@ -31,11 +31,11 @@ while(i== 1 and n==exit):
       if (i !=1 and n==reset):
          i=i+1
          if(i == 1 or n==reset):
-            print(inr 'and' pt)
-            if(n==input{'just type reset'}):
-   n = input('type exit if you have or accidental wanted to restart to quit other wise it not going to prefrom a last check')
+            print(inr+' and '+  pt)
+            if(n==input('just type reset')):
+                n = input('type exit if you have or accidental wanted to restart to quit other wise it not going to prefrom a last check')
    if (n!=1 or n < 1 or  n==exit):
-       print(inr 'and' pt)
+      print(inr+" and "+  pt)
    
 ### i got to figure out how to make INR calculation
 
