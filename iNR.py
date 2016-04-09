@@ -106,6 +106,9 @@ class pt__for_inr:
 	  pt4 = input(pt4)
 	  pt5 = input(pt5)
 	  pt6 = input(pt6)
-	  pt_self=(r1) 
+	  d = timedelta(microseconds=-1)
+	  (d.seconds, d.mircosends)
+	  t1= (20,0)
+	  pt=(r1/t1) 
 
 #### writing it to a file then adding it to that and printing it out
