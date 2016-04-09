@@ -37,12 +37,12 @@ ground1=06
 ground2=25
 ground3=14
 ### setting up the pins
-GPIO.setup(readout1, GPIO.IN)
-GPIO.setup(heating1, GPIO.OUT)
-GPIO.setup(readout2, GPIO.IN)
-GPIO.setup(heating2, GPIO.OUT)
-GPIO.setup(readout3, GPIO.IN)
-GPIO.setup(heating3, GPIO.OUT)
+r1=GPIO.setup(readout1, GPIO.IN)
+h1=GPIO.setup(heating1, GPIO.OUT)
+r2=GPIO.setup(readout2, GPIO.IN)
+h2=GPIO.setup(heating2, GPIO.OUT)
+h3=GPIO.setup(readout3, GPIO.IN)
+h4=GPIO.setup(heating3, GPIO.OUT)
 
 #### main program #####
 while(i== 1 and n==exit):
@@ -106,6 +106,6 @@ class pt__for_inr:
 	  pt4 = input(pt4)
 	  pt5 = input(pt5)
 	  pt6 = input(pt6)
-	  pt_self=alanysis() 
+	  pt_self=(r1) 
 
 #### writing it to a file then adding it to that and printing it out
