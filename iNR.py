@@ -34,18 +34,15 @@ while(i== 1 and n==exit):
             print(inr+' and '+  pt)
             if(n==input('just type reset')):
                 n = input('type exit if you have or accidental wanted to restart to quit other wise it not going to prefrom a last check')
-   if (n!=1 or n < 1 or  n==exit):
+   if (n!=1 or n < 1 and  n==exit):
       print(inr+" and "+  pt)
    
 ### i got to figure out how to make INR calculation
+class int_nom_rat:
+   def int_nom_ratio(self):
+     inr = (pt/ptnom)^isitest
+    
 
-int_nor_rat(inr):
-   inr = (pt/ptnom)^isitest
-
-
-### slope
-
-slope = (a-c)/(b-c)
 #### isi 
 
 isitest = isiref*slope
@@ -53,15 +50,21 @@ isitest = isiref*slope
 
 ### create the logirithm slope of a b and c
 
-if(a < b ):
-
 ### slope
-else:
-   slope = (a-c)/(b-c)
+class detla:
+   def ___A__B___C(self):
+     if(a < b ):
+        return 0
+     else:
+         slope = (a-c)/(b-c)
 
 ###last one #####
-if (size == 0):
-f.readline(size-1)
+class final:
+   def searching__the_last(self):
+     if (size == 0):
+        return
+     else:
+        f.readline(size-1)
 
 
 #### writing it to a file then adding it to that and printing it out
