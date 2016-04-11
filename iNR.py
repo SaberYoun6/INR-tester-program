@@ -3,6 +3,8 @@
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
 #### variables ##### 
+import numpy
+import math
 import time
 import numpy as np
 import sys
@@ -95,7 +97,7 @@ class detla:
      if(a < b ):
         return
      else:
-        slope = (a-c)/(b-c)
+       slope= math.log(pnthigh)-math.log(pntlows)/math.log(pt)-math.log(pntlow)
 
 ###last one #####
 class final:
@@ -106,36 +108,87 @@ class final:
          f.readline(size-1)
 header=(size-2)
 value=0
+counter=1
+counters=0
 i=0
 f1 = open('~/Documents/datapoints','w')
 f2 = open('~/Documents/datapoints','r')
 d = timedelta(microseconds=-1)
 (d.seconds, d.mircoseconds)
 t1=(20,0)
+pt_dict={}
 class pt__for_inr:
-   def pt_(self):
+   def pt_(self, ptdelta):
       if (values>=1 or inputs==recalibartions):
          pnt1=(r1/t1)+(r2/t1)
          pnt1=pnt1/2
-         pnt2=(r1/t1)+(r2/t1)
-         pnt2=pnt2/2
-         pnt3=(r1/t1)+(r2/t1)
-         pnt3=pnt3/2
-         pnt4=(r1/t1)+(r2/t1)
-         pnt4=pnt4/2
-         pnt5=(r1/t1)+(r2/t1)
-         pnt5=pnt5/2
-         pnt6=(r1/t1)+(r2/t1)
-         pnt6=pnt6/2
-         pt1 = input(pt1).compare(pnt1)
-         pt2 = input(pt2).compare(pnt2)
-         pt3 = input(pt3).compare(pnt3)
-         pt4 = input(pt4).compare(pnt4)
-         pt5 = input(pt5).compare(pnt5)
-         pt6 = input(pt6).compare(pnt6)
-         value=value+1
-         f1.write(pt1+ pt2 + pt3 + pt4 + pt5 + pt6 )
-      else:
+         pnt2=r1/t1+r2/t1
+         pnt2= pnt2/2
+         pnt3=r1/t1+r2/t1
+         pnt3= pnt3/2
+         pnt4=r1/t1+r2/t1
+         pnt4= pnt4/2
+         pnt5=r1/t1+r2/t1
+         pnt5= pnt5/2
+         pnt6=r1/t1+r2/t1
+         pnt6= pnt6/2
+         pnt7=r1/t1+r2/t1
+         pnt7= pnt7/2
+         pnt8=r1/t1+r2/t1
+         pnt8= pnt8/2
+         pnt9=r1/t1+r2/t1
+         pnt9= pnt9/2
+         pnt10=r1/t1+r2/t1
+         pnt10= pnt10/2
+         pnt11=r1/t1+r2/t1
+         pnt11= pnt11/2
+         pnt12=r1/t1+r2/t1
+         pnt12= pnt12/2
+         pnt13=r1/t1+r2/t1
+         pnt13= pnt13/2
+         pnt14=r1/t1+r2/t1
+         pnt14= pnt14/2
+         pnt15=r1/t1+r2/t1
+         pnt15= pnt15/2
+         pnt16=r1/t1+r2/t1
+         pnt16= pnt16/2
+         pnt17=r1/t1+r2/t1
+         pnt17= pnt17/2
+         pnt18=r1/t1+r2/t1
+         pnt18= pnt18/2
+         pnt19=r1/t1+r2/t1
+         pnt19= pnt19/2
+         pnt20=r1/t1+r2/t1
+         pnt20= pnt20/2
+         pnt21=r1/t1+r2/t1
+         pnt21= pnt21/2
+         pnt22=r1/t1+r2/t1
+         pnt22= pnt22/2
+         pnt23=r1/t1+r2/t1
+         pnt23= pnt23/2
+         pnt24=r1/t1+r2/t1
+         pnt24= pnt24/2
+         pnt25=r1/t1+r2/t1
+         pnt25= pnt25/2
+         pnt26=r1/t1+r2/t1
+         pnt26= pnt26/2
+         pnt27=r1/t1+r2/t1
+         pnt27= pnt27/2
+         pnt28=r1/t1+r2/t1
+         pnt28= pnt28/2
+         pnt29=r1/t1+r2/t1
+         pnt29= pnt29/2
+         pnt30=r1/t1+r2/t1
+         pnt30= pnt30/2
+	  
+         for counter in range(counter,31):
+            pt+counter = input(pt+counter)
+            ptdelta+counter= pt+counter-pnt+counter
+            for counters in range(counters,31): 
+			    ptc+counters = 0 >= ptdelta+counters
+                pt_dict = {[pnt+counter : ptc+counters ]}
+                lambda(pnt+counters,ptdetla.counter,x-y)
+	  else:
          for i in range(i,1):
             if(inputs== input(recalibrations) or values == 1):
                f2.read(size-1)
@@ -161,11 +214,11 @@ class ptnom__for__inr:
           ptnom2=r3/t1+r4/t1
           ptnom2=ptnom2/2
           ptnom3=r3/t1+r4/t1
-          ptnom3=ptnom2/2
+          ptnom3=ptnom3/2
           ptnom4=r3/t1+r4/t1
-          ptnom4=ptnom2/2
+          ptnom4=ptnom4/2
           ptnom5=r3/t1+r4/t1
-          ptnom5=ptnom2/2
+          ptnom5=ptnom5/2
           ptnom6=r3/t1+r4/t1
           ptnom6=ptnom6/2
           ptno1= input(ptnom)
@@ -180,7 +233,7 @@ class ptnom__for__inr:
 		  ptnoc4= input(ptnom).compare(ptnom4)
           ptnoc5= input(ptnom).compare(ptnom5)
           ptnoc6= input(ptnom).compare(ptnom6)
-		  value=value + 1
+		  value`=value + 1
 	      f1.write(ptnoc1+ ptnoc3 + ptnoc4 + ptnoc5 + ptnoc6)
 	      for i in range(i,1):
 			 if(inputs==input(recalibaration)):
