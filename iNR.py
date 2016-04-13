@@ -38,10 +38,10 @@ b=0
 c=0
 i=0
 pt_dict={}
-ptdraw= r1/t1+r2/t1/2#  mm/ seconds 
-ptdrawc= input('pt')
-ptnomdraw= r3/t1+r4/t1/2
-ptnomdraw= input('pt normal') 
+ptdrawc1= r1/t1+r2/t1/2#  mm/ seconds 
+ptdrawc2= input('pt')
+ptnomdrawc1= r3/t1+r4/t1/2
+ptnomdrawc2= input('pt normal') 
 ##### GPIO  #######
 GPIO,setmode(GPIO.BOARD)
 GPIO.cleanup()
@@ -70,13 +70,13 @@ h4=GPIO.setup(heating4, GPIO.OUT)
 but1=GPIO.setup(button1, GPIO.IN)
 but2=GPIO.setup(button2, GPIO.IN)
 #### main program #####
-def msort(x)
+def msort(x):
  results=[]
- if len(x < 2:
+ if len(x < 2):
   return x 
  mid = int(len(x)/2)
- y=msort(x[:mid])
- z= msort(x:mid:])
+ y= msort (x[:mid])
+ z= msort (x[mid:])
  i = 0
  j = 0
  while i <len(y) and j <len(z):
@@ -90,44 +90,47 @@ def msort(x)
  result += z[j:]
  return results
 class pt__for_inr:
-   def pt_(ptdraw,ptdrawc):
-      lg1=ptdraw[0]
-      la1=ptdraw[1]
-      lg2=ptdrawc[0]
-      la2=ptdrawc[1]
-      return closePT = arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
-   def pt__(self)
-    for counter in range(counter,31):
-      'ptdelta'+counter= ptdraw-ptdrawc
-      if('ptc'+counter = 0 or 0 >= 'ptdelta'+counter and 'ptdelta'+counter <= 0):
-         'ptc'+counter = 'ptc'+counter - ptdelta
-              else:
-				   ptc+counter == ptdetla+counter
-				   continue
-                   pt_dict = {['pnt'+counters], ['ptc'+counters]}
-                   ptcomp=map(lambda x,y:x-y,'pnt'+counters,'ptdelta'+counters)
-				   pt=((r1/t1)+(r2/t1))/2
-				    
-	               else:
-                      for i in range(i,1):
-    		             if(inputs== input(recalibrations) or values == 1):
-                             f2.read(size-1)
-                             f.write(pt)
-                             return pt	
-                             elif(inputs==input(recalibarations)):
-                             value = 0
-                             break
-                             else:
-                             ptjoint2=f2.read(header)
-                             f.write(pt)
+ def pt_(ptdrawc1,ptdrawc2):
+  lg1=ptdrawc1[0]
+  la1=ptdrawc1[1]
+  lg2=ptdrawc2[0]
+  la2=ptdrawc2[1] 
+  clopt = arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
+  return clopt
+ def pt__(self)
+  for counter in range(counter,31):
+   'ptdelta'+counter= ptdrawc1-ptdrawc2
+   if('ptc'+counter = 0 or 0 >= 'ptdelta'+counter and 'ptdelta'+counter <= 0):
+    'ptc'+counter = 'ptc'+counter - 'ptdelta'+counter
+   else:
+    ptc+counter == ptdetla+counter
+    continue
+	if (pt in range (closePTNOM,closePT):
+     pt_dict = {['pnt'+counters], ['ptc'+counters]}
+     pt=((r1/t1)+(r2/t1))/2
+     ptcomp=map(lambda x,y:x-y,'pt'+counters,'ptc'+counters)   
+    else:
+     for i in range(i,1):
+      if(inputs== input(recalibrations) or values == 1):
+       f2.read(size-1)
+       f.write(pt)
+       return pt	
+      elif(inputs==input(recalibarations)):
+       value = 0
+       break
+      else:
+       ptjoint2=f2.read(header)
+	   return pt
+       f.write(pt)
 # this is used to create a class for the ptnom in the inr to usd
 class ptnom__for__inr:
- def ptnom__(ptnomdraw , ptnomdrawc):
-      lg1=ptnomdraw[0]
-      la1=ptnomdraw[1]
-      lg2=ptnomdrawc[0]
-      la2=ptnomdrawc[1]
-      return closestpt= arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
+ def ptnom__(ptnomdrawc1 , ptnomdrawc2):
+  lg1=ptnomdrawc1[0]
+  la1=ptnomdrawc1[1]
+  lg2=ptnomdrawc2[0]
+  la2=ptnomdrawc2[1] 
+  closeptnom= arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
+  return closeptnom
  def ptnoms(self)
   if (values >= 2 and values!=1 or inputs==recalibarations):
    for counter in range (counter, 37) 
@@ -139,16 +142,16 @@ class ptnom__for__inr:
     'ptnoTF'+counter=ptnoc
     value=value + 1
     f1.write(ptnoc1+ ptnoc3 + ptnoc4 + ptnoc5 + ptnoc6)
-    for i in range(i,1):
-     ptnom= (r3/t1)+(r4/t1)/2
-     f.write(ptnom)
-     return ptnom
-      if(inputs==input(recalibaration)):#i'm hoping that it will rest the values back to zero then it will change allow the change o the varable type
-        values=0
-        break
-      else:
-      f2.read(size-1)
-     
+ for i in range(i,1):
+  ptnom= (r3/t1)+(r4/t1)/2
+  f.write(ptnom)
+  return ptnom
+  if(inputs==input(recalibaration)):#i'm hoping that it will rest the values back to zero then it will change allow the change o the varable type
+  values=0
+   break
+  else:
+   f2.read(size-1)
+      
 class detla:
    def ___A__B___C(self):
      if(a < b ):
