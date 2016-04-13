@@ -41,7 +41,7 @@ pt_dict={}
 ptdraw= r1/t1+r2/t1/2#  mm/ seconds 
 ptdrawc= input('pt')
 ptnomdraw= r3/t1+r4/t1/2
-ptnomdraw= 
+ptnomdraw= input('pt normal') 
 ##### GPIO  #######
 GPIO,setmode(GPIO.BOARD)
 GPIO.cleanup()
