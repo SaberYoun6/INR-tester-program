@@ -15,6 +15,16 @@ from dateime import timedelta
 
 f=open('~/Documents/bloodtest','r+a')
 inr = 0.0
+header=(size-2)
+value=0
+counter=1
+counters=0
+i=0
+f1 = open('~/Documents/datapoints','w')
+f2 = open('~/Documents/datapoints','r')
+d = timedelta(microseconds=-1)
+(d.seconds, d.mircoseconds)
+t1=(20,0)
 pt = 0.0
 ptnom = 0.0
 isitest=0
@@ -27,6 +37,11 @@ a=0
 b=0
 c=0
 i=0
+pt_dict={}
+ptdraw= r1/t1+r2/t1/2#  mm/ seconds 
+ptdrawc= input('pt')
+ptnomdraw= r3/t1+r4/t1/2
+ptnomdraw= 
 ##### GPIO  #######
 GPIO,setmode(GPIO.BOARD)
 GPIO.cleanup()
@@ -55,12 +70,99 @@ h4=GPIO.setup(heating4, GPIO.OUT)
 but1=GPIO.setup(button1, GPIO.IN)
 but2=GPIO.setup(button2, GPIO.IN)
 #### main program #####
-while(i== 1 and n==exit):
+def msort(x)
+ results=[]
+ if len(x < 2:
+  return x 
+ mid = int(len(x)/2)
+ y=msort(x[:mid])
+ z= msort(x:mid:])
+ i = 0
+ j = 0
+ while i <len(y) and j <len(z):
+  if y [i] > z[j]:
+   result.append(z[j])
+   j += 1
+  else:
+   result.appnd(y[i])
+   i +=1
+ result += y[i:]
+ result += z[j:]
+ return results
+class pt__for_inr:
+   def pt_(ptdraw,ptdrawc):
+      lg1=ptdraw[0]
+      la1=ptdraw[1]
+      lg2=ptdrawc[0]
+      la2=ptdrawc[1]
+      return closePT = arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
+   def pt__(self)
+    for counter in range(counter,31):
+      'ptdelta'+counter= ptdraw-ptdrawc
+      if('ptc'+counter = 0 or 0 >= 'ptdelta'+counter and 'ptdelta'+counter <= 0):
+         'ptc'+counter = 'ptc'+counter - ptdelta
+              else:
+				   ptc+counter == ptdetla+counter
+				   continue
+                   pt_dict = {['pnt'+counters], ['ptc'+counters]}
+                   ptcomp=map(lambda x,y:x-y,'pnt'+counters,'ptdelta'+counters)
+				   pt=((r1/t1)+(r2/t1))/2
+				    
+	               else:
+                      for i in range(i,1):
+    		             if(inputs== input(recalibrations) or values == 1):
+                             f2.read(size-1)
+                             f.write(pt)
+                             return pt	
+                             elif(inputs==input(recalibarations)):
+                             value = 0
+                             break
+                             else:
+                             ptjoint2=f2.read(header)
+                             f.write(pt)
+# this is used to create a class for the ptnom in the inr to usd
+class ptnom__for__inr:
+ def ptnom__(ptnomdraw , ptnomdrawc):
+      lg1=ptnomdraw[0]
+      la1=ptnomdraw[1]
+      lg2=ptnomdrawc[0]
+      la2=ptnomdrawc[1]
+      return closestpt= arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
+ def ptnoms(self)
+  if (values >= 2 and values!=1 or inputs==recalibarations):
+   for counter in range (counter, 37) 
+    'ptnom'+counter=r3/t1+r4/t1
+    'ptnom'+counter='ptnom'+counter/2
+    'ptno'+counter= input(ptnom)
+    'ptnomdelta'+counter= 'ptnom'+counter-'ptno'+counter
+    'ptnoc'+counter = 'ptnom'+counter-'ptnomdelta'+counter;
+    'ptnoTF'+counter=ptnoc
+    value=value + 1
+    f1.write(ptnoc1+ ptnoc3 + ptnoc4 + ptnoc5 + ptnoc6)
+    for i in range(i,1):
+     ptnom= (r3/t1)+(r4/t1)/2
+     f.write(ptnom)
+     return ptnom
+      if(inputs==input(recalibaration)):#i'm hoping that it will rest the values back to zero then it will change allow the change o the varable type
+        values=0
+        break
+      else:
+      f2.read(size-1)
+     
+class detla:
+   def ___A__B___C(self):
+     if(a < b ):
+        return 0
+     else:
+       slope= math.log(pt)-math.log(ptnormallows)/math.log(highestpt)-math.log(ptnormallow)
+class main_expression:
+ def main()
+  while(i== 1 and n==exit):
 
    user_data_low = input('prompt the users to enter a two digit number ')
-   user_data_high = input('prompt the users to enter a two digit number ')
-   f.write(user_data_low)
-   f.write(user_data_high)
+      user_data_high = input('prompt the users to enter a two digit number ')
+   f1.write(user_data_low)#these are to 
+   f1.write(user_data_high)
    while (i <= 100000 or n== reset):
       if (i<= 100000):
           n = input('if you made a mistake when input your intial values type reset.')
@@ -85,19 +187,13 @@ class int_nom_rat:
           return(inr + 'your level are to high')
 
 #### isi 
-
+#this is going to be a hard set to .7 or 1.4
 isitest = isiref*slope
-
+##isiref is based upon the reagents that are used to compare them 
 
 ### create the logirithm slope of a b and c
 
 ### slope
-class detla:
-   def ___A__B___C(self):
-     if(a < b ):
-        return
-     else:
-       slope= math.log(pnthigh)-math.log(pntlows)/math.log(pt)-math.log(pntlow)
 
 ###last one #####
 class final:
@@ -106,145 +202,6 @@ class final:
         return
      else:
          f.readline(size-1)
-header=(size-2)
-value=0
-counter=1
-counters=0
-i=0
-f1 = open('~/Documents/datapoints','w')
-f2 = open('~/Documents/datapoints','r')
-d = timedelta(microseconds=-1)
-(d.seconds, d.mircoseconds)
-t1=(20,0)
-pt_dict={}
-class pt__for_inr:
-   def pt_(self, ptdelta):
-      if (values>=1 or inputs==recalibartions):
-         pnt1=(r1/t1)+(r2/t1)
-         pnt1=pnt1/2
-         pnt2=r1/t1+r2/t1
-         pnt2= pnt2/2
-         pnt3=r1/t1+r2/t1
-         pnt3= pnt3/2
-         pnt4=r1/t1+r2/t1
-         pnt4= pnt4/2
-         pnt5=r1/t1+r2/t1
-         pnt5= pnt5/2
-         pnt6=r1/t1+r2/t1
-         pnt6= pnt6/2
-         pnt7=r1/t1+r2/t1
-         pnt7= pnt7/2
-         pnt8=r1/t1+r2/t1
-         pnt8= pnt8/2
-         pnt9=r1/t1+r2/t1
-         pnt9= pnt9/2
-         pnt10=r1/t1+r2/t1
-         pnt10= pnt10/2
-         pnt11=r1/t1+r2/t1
-         pnt11= pnt11/2
-         pnt12=r1/t1+r2/t1
-         pnt12= pnt12/2
-         pnt13=r1/t1+r2/t1
-         pnt13= pnt13/2
-         pnt14=r1/t1+r2/t1
-         pnt14= pnt14/2
-         pnt15=r1/t1+r2/t1
-         pnt15= pnt15/2
-         pnt16=r1/t1+r2/t1
-         pnt16= pnt16/2
-         pnt17=r1/t1+r2/t1
-         pnt17= pnt17/2
-         pnt18=r1/t1+r2/t1
-         pnt18= pnt18/2
-         pnt19=r1/t1+r2/t1
-         pnt19= pnt19/2
-         pnt20=r1/t1+r2/t1
-         pnt20= pnt20/2
-         pnt21=r1/t1+r2/t1
-         pnt21= pnt21/2
-         pnt22=r1/t1+r2/t1
-         pnt22= pnt22/2
-         pnt23=r1/t1+r2/t1
-         pnt23= pnt23/2
-         pnt24=r1/t1+r2/t1
-         pnt24= pnt24/2
-         pnt25=r1/t1+r2/t1
-         pnt25= pnt25/2
-         pnt26=r1/t1+r2/t1
-         pnt26= pnt26/2
-         pnt27=r1/t1+r2/t1
-         pnt27= pnt27/2
-         pnt28=r1/t1+r2/t1
-         pnt28= pnt28/2
-         pnt29=r1/t1+r2/t1
-         pnt29= pnt29/2
-         pnt30=r1/t1+r2/t1
-         pnt30= pnt30/2
-	  
-         for counter in range(counter,31):
-            pt+counter = input(pt+counter)
-            ptdelta+counter= pt+counter-pnt+counter
-            for counters in range(counters,31): 
-			    ptc+counters = 0 >= ptdelta+counters
-                pt_dict = {[pnt+counter : ptc+counters ]}
-                lambda(pnt+counters,ptdetla.counter,x-y)
-	  else:
-         for i in range(i,1):
-            if(inputs== input(recalibrations) or values == 1):
-               f2.read(size-1)
-               pt = (r1/t1)+(r2/t1)/2
-               f.write(pt)
-               return pt	
-            elif(inputs==input(recalibarations)):
-               value = 0
-               break
-            else:
-               f2.read(header)
-               pt = (r1/t1)+(r2/t1)/2
-               f.write(pt)
-               return  pt
-
-
-# this is used to create a class for the ptnom in the inr to usd
-class ptnom__for__inr:
-   def ptnom__(self):
-      if (values >= 2 or inputs==recalibarations):
-          ptnom1=r3/t1+r3/t1
-          ptnom1=ptnom1/2
-          ptnom2=r3/t1+r4/t1
-          ptnom2=ptnom2/2
-          ptnom3=r3/t1+r4/t1
-          ptnom3=ptnom3/2
-          ptnom4=r3/t1+r4/t1
-          ptnom4=ptnom4/2
-          ptnom5=r3/t1+r4/t1
-          ptnom5=ptnom5/2
-          ptnom6=r3/t1+r4/t1
-          ptnom6=ptnom6/2
-          ptno1= input(ptnom)
-          ptno2= input(ptnom)
-          ptno3= input(ptnom)
-          ptno4= input(ptnom)
-          ptno5= input(ptnom)
-          ptno6= input(ptnom)
-          ptnoc1= input(ptnom).compare(ptnom1)
-          ptnoc2= input(ptnom).compare(ptnom2)
-	      ptnoc3= input(ptnom).compare(ptnom3)
-		  ptnoc4= input(ptnom).compare(ptnom4)
-          ptnoc5= input(ptnom).compare(ptnom5)
-          ptnoc6= input(ptnom).compare(ptnom6)
-		  value`=value + 1
-	      f1.write(ptnoc1+ ptnoc3 + ptnoc4 + ptnoc5 + ptnoc6)
-	      for i in range(i,1):
-			 if(inputs==input(recalibaration)):
-                values=0
-				break
-			 else:
-                f2.read(size-1)
-
-				ptnom= (r3/t1)+(r4/t1)/2
-                f.write(ptnom)
-                return ptnom
 #### writing it to a file the` adding it to that and printing it out
 f.close()
 f1.close()
