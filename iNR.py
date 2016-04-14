@@ -3,7 +3,6 @@
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
 #### variables ##### 
-import numpy
 import math
 import time
 import numpy as np
@@ -95,29 +94,26 @@ class pt__for_inr:
   la1=ptdrawc1[1]
   lg2=ptdrawc2[0]
   la2=ptdrawc2[1] 
-  clopt = arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
-  return clopt
- def pt__(self)
-  for counter in range(counter,31):
-   'ptdelta'+counter= ptdrawc1-ptdrawc2
-   if('ptc'+counter = 0 or 0 >= 'ptdelta'+counter and 'ptdelta'+counter <= 0):
-    'ptc'+counter = 'ptc'+counter - 'ptdelta'+counter
-   else:
-    ptc+counter == ptdetla+counter
-    continue
-	if (pt in range (closePTNOM,closePT):
-     pt_dict = {['pnt'+counters], ['ptc'+counters]}
+  
+ def pt__(self, ptdrawc1 ptdrawc2)
+ # for counter in range(counter,31):
+   self.ptdelta= ptdrawc1-ptdrawc2
+   self.ptdrawc1=[]
+   self.ptdrawc2=[]
+   self.ptdelta= []
+ def appendingpt(self, ptdelta, ptdrawc1,ptrdrawc2):
+  self.ptdelta.append(ptdelta)
+  self.ptdrawc1.append(ptdrawc1)
+  self.ptdrawc1.append(ptdrawc2)
+  def patents__pt(self.):
+	if (pt in range (pt_(pt,),):
      pt=((r1/t1)+(r2/t1))/2
      ptcomp=map(lambda x,y:x-y,'pt'+counters,'ptc'+counters)   
     else:
      for i in range(i,1):
       if(inputs== input(recalibrations) or values == 1):
        f2.read(size-1)
-       f.write(pt)
        return pt	
-      elif(inputs==input(recalibarations)):
-       value = 0
-       break
       else:
        ptjoint2=f2.read(header)
 	   return pt
@@ -129,8 +125,7 @@ class ptnom__for__inr:
   la1=ptnomdrawc1[1]
   lg2=ptnomdrawc2[0]
   la2=ptnomdrawc2[1] 
-  closeptnom= arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
-  return closeptnom
+  return arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
  def ptnoms(self)
   if (values >= 2 and values!=1 or inputs==recalibarations):
    for counter in range (counter, 37) 
@@ -193,10 +188,7 @@ class int_nom_rat:
 #this is going to be a hard set to .7 or 1.4
 isitest = isiref*slope
 ##isiref is based upon the reagents that are used to compare them 
-
-### create the logirithm slope of a b and c
-
-### slope
+class 
 
 ###last one #####
 class final:
