@@ -72,7 +72,7 @@ but2=GPIO.setup(button2, GPIO.IN)
 def msort(x):
  results=[]
  if len(x < 2):
-  return x 
+  return x
  mid = int(len(x)/2)
  y= msort (x[:mid])
  z= msort (x[mid:])
@@ -89,26 +89,27 @@ def msort(x):
  result += z[j:]
  return results
 class pt__for_inr:
- def pt_(ptdrawc1,ptdrawc2):
+ def close_pt(ptdrawc1,ptdrawc2):
   lg1=ptdrawc1[0]
   la1=ptdrawc1[1]
   lg2=ptdrawc2[0]
   la2=ptdrawc2[1] 
-  
- def pt__(self, ptdrawc1 ptdrawc2)
+  return arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
+ # set pt_ to a new method by using the distance formula
+ def pt__(self, ptdrawc1, ptdrawc2):
  # for counter in range(counter,31):
    self.ptdelta= ptdrawc1-ptdrawc2
-   self.ptdrawc1=[]
-   self.ptdrawc2=[]
-   self.ptdelta= []
+   return self.ptdelta
+# set a point at which to appended the values 
  def appendingpt(self, ptdelta, ptdrawc1,ptrdrawc2):
   self.ptdelta.append(ptdelta)
   self.ptdrawc1.append(ptdrawc1)
   self.ptdrawc1.append(ptdrawc2)
+ #this is going to be the try value that we are going to using to define  how closenss of the proximotiy to the patents own blood.
   def patents__pt(self.):
-	if (pt in range (pt_(pt,),):
-     pt=((r1/t1)+(r2/t1))/2
-     ptcomp=map(lambda x,y:x-y,'pt'+counters,'ptc'+counters)   
+	if (pt in range (pt_(pt,slope),):
+     self.pt=((r1/t1)+(r2/t1))/2
+     ptcomp=map(lambda x,y:x-y,self.pt,ptdelta)   
     else:
      for i in range(i,1):
       if(inputs== input(recalibrations) or values == 1):
@@ -148,41 +149,41 @@ class ptnom__for__inr:
    f2.read(size-1)
       
 class detla:
-   def ___A__B___C(self):
-     if(a < b ):
-        return 0
-     else:
-       slope= math.log(pt)-math.log(ptnormallows)/math.log(highestpt)-math.log(ptnormallow)
+ def slope__isi(self):
+  if(a < b ):
+   return 0
+  else:
+   return math.log(patent_pt)-math.log(ptnormallows)/math.log(close_pt)-math.log(ptnormallow)
 class main_expression:
  def main()
   while(i== 1 and n==exit):
 
    user_data_low = input('prompt the users to enter a two digit number ')
-      user_data_high = input('prompt the users to enter a two digit number ')
+   user_data_high = input('prompt the users to enter a two digit number ')
    f1.write(user_data_low)#these are to 
    f1.write(user_data_high)
    while (i <= 100000 or n== reset):
       if (i<= 100000):
-          n = input('if you made a mistake when input your intial values type reset.')
-      if (i !=1 and n==reset):
-         i=i+1
+        n = input('if you made a mistake when input your intial values type reset.')
+       if (i !=1 and n==reset):
+        i=i+1
          if(i == 1 or n==reset):
-            print(int_nom+ratio() +"and"+ pt_for_inr())
+            print(int_nom+ratio() +"and"+ patents_pt)
             if(n==input('just type reset')):
-                n = input('type exit if you have or accidental wanted to restart to quit other wise it not going to prefrom a last check')
+              n = input('type exit if you have or accidental wanted to restart to quit other wise it not going to prefrom a last check')
    if (n!=1 or n < 1 and  n==exit):
-      print(int_nom_rat()+  " and "+  pt_())
+    print(int_nom_ratio +  " and "+ patents_pt)
    
 ### i got to figure out how to make INR calculation
 class int_nom_rat:
-   def int_nom_ratio(self):
-      inr = (pt/ptnom)^isitest
-      if (inr < user_data_low):
-          return (inr + "your level are to low")
-      elif (user_data_low <= inr and inr <= user_data_high):
-         return(inr + 'your levels are right on')
-      else:
-          return(inr + 'your level are to high')
+ def int_nom_ratio(self):
+  self.inr = (patents_pt/ptnom)^isitest
+   if (inr < user_data_low):
+    return (inr + "your level are to low")
+   elif (user_data_low <= inr and inr <= user_data_high):
+     return(inr + 'your levels are right on')
+    else:
+     return(inr + 'your level are to high')
 
 #### isi 
 #this is going to be a hard set to .7 or 1.4
