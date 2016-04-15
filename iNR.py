@@ -93,8 +93,10 @@ class pt__for_inr:
   lg1=ptdrawc1[0]
   la1=ptdrawc1[1]
   lg2=ptdrawc2[0]
-  la2=ptdrawc2[1] 
-  return arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
+  la2=ptdrawc2[1]
+  innervalue = 0
+  innervalues += ((lg1 - la1)**2 + (lg2-la2)**2)
+  return math.sqrt(innervalues)
  # set pt_ to a new method by using the distance formula
  def pt__(self, ptdrawc1, ptdrawc2):
  # for counter in range(counter,31):
@@ -106,47 +108,37 @@ class pt__for_inr:
   self.ptdrawc1.append(ptdrawc1)
   self.ptdrawc1.append(ptdrawc2)
  #this is going to be the try value that we are going to using to define  how closenss of the proximotiy to the patents own blood.
-  def patents__pt(self.):
-	if (pt in range (pt_(pt,slope),):
+  def patents__pt(self):
+   if (patents_pt in close_pt(patents_pt,slope__isi)):
      self.pt=((r1/t1)+(r2/t1))/2
-     ptcomp=map(lambda x,y:x-y,self.pt,ptdelta)   
-    else:
-     for i in range(i,1):
-      if(inputs== input(recalibrations) or values == 1):
-       f2.read(size-1)
-       return pt	
-      else:
-       ptjoint2=f2.read(header)
-	   return pt
-       f.write(pt)
+     ptcomp=map(lambda x,y:x-y,self.pt,self.ptdelta)   
+   else:
+    for l in range(l,1):
+      return self.pt	 
+      l += 1
 # this is used to create a class for the ptnom in the inr to usd
 class ptnom__for__inr:
- def ptnom__(ptnomdrawc1 , ptnomdrawc2):
+ def close__ptnom(ptnomdrawc1 , ptnomdrawc2):
   lg1=ptnomdrawc1[0]
   la1=ptnomdrawc1[1]
   lg2=ptnomdrawc2[0]
-  la2=ptnomdrawc2[1] 
-  return arccos(sin(la1)*sin(la2)+cos(la1)*cos(la2)*cos(lg1-lg2)
- def ptnoms(self)
-  if (values >= 2 and values!=1 or inputs==recalibarations):
-   for counter in range (counter, 37) 
-    'ptnom'+counter=r3/t1+r4/t1
-    'ptnom'+counter='ptnom'+counter/2
-    'ptno'+counter= input(ptnom)
-    'ptnomdelta'+counter= 'ptnom'+counter-'ptno'+counter
-    'ptnoc'+counter = 'ptnom'+counter-'ptnomdelta'+counter;
-    'ptnoTF'+counter=ptnoc
-    value=value + 1
-    f1.write(ptnoc1+ ptnoc3 + ptnoc4 + ptnoc5 + ptnoc6)
- for i in range(i,1):
-  ptnom= (r3/t1)+(r4/t1)/2
-  f.write(ptnom)
-  return ptnom
-  if(inputs==input(recalibaration)):#i'm hoping that it will rest the values back to zero then it will change allow the change o the varable type
-  values=0
-   break
-  else:
-   f2.read(size-1)
+  la2=ptnomdrawc2[1]
+  innervalues= 0
+  innervalues += ((lg1-la1)**2 + (lg2-lg2)**2)
+  return math.sprt(innervalue) 
+ def appending__pt__noms(self, ptnomdrawc1,ptnomdrawc2):
+  self.ptnomdelta = ptnomdrawc1 - ptnomdrawc2
+  return self.ptnomdelta
+ def patent_pt__noms(self):
+  if (patent_pt_noms in close_ptnom(patent_pt_noms,slope_isi)):
+   self.ptnom= (r3/t1)+(r4/t1)/2
+   ptcom = map(lambda x,y: x-y, self.ptnom,self.ptnomdelta)
+   for k in range(k,1):
+    self.ptnom= (r3/t1)+(r4/t1)/2
+    k += 1
+    return ptnom
+  
+   
       
 class detla:
  def slope__isi(self):
@@ -155,7 +147,7 @@ class detla:
   else:
    return math.log(patent_pt)-math.log(ptnormallows)/math.log(close_pt)-math.log(ptnormallow)
 class main_expression:
- def main()
+ def main():
   while(i== 1 and n==exit):
 
    user_data_low = input('prompt the users to enter a two digit number ')
