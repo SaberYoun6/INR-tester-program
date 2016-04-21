@@ -5,7 +5,7 @@
 #### variables ##### 
 import math
 import time
-import numpy as np
+import numpy as np s
 import sys
 import RPi.GPIO as GPIO
 import threading 
@@ -149,39 +149,26 @@ class detla:
 class main_expression:
  def main():
   while(i== 1 and n==exit):
-
    user_data_low = input('prompt the users to enter a two digit number ')
    user_data_high = input('prompt the users to enter a two digit number ')
-   f1.write(user_data_low)#these are to 
-   f1.write(user_data_high)
-   while (i <= 100000 or n== reset):
-      if (i<= 100000):
-        n = input('if you made a mistake when input your intial values type reset.')
-       if (i !=1 and n==reset):
-        i=i+1
-         if(i == 1 or n==reset):
-            print(int_nom+ratio() +"and"+ patents_pt)
-            if(n==input('just type reset')):
-              n = input('type exit if you have or accidental wanted to restart to quit other wise it not going to prefrom a last check')
-   if (n!=1 or n < 1 and  n==exit):
-    print(int_nom_ratio +  " and "+ patents_pt)
+   print(int_nom_ratio +  " and "+ patents_pt)
    
 ### i got to figure out how to make INR calculation
 class int_nom_rat:
  def int_nom_ratio(self):
   self.inr = (patents_pt/ptnom)^isitest
-   if (inr < user_data_low):
-    return (inr + "your level are to low")
-   elif (user_data_low <= inr and inr <= user_data_high):
-     return(inr + 'your levels are right on')
-    else:
-     return(inr + 'your level are to high')
+  if (inr < user_data_low):
+   return (inr + "your level are to low")
+  elif (user_data_low <= inr and inr <= user_data_high):
+   return(inr + 'your levels are right on')
+  else:
+   return(inr + 'your level are to high')
 
 #### isi 
 #this is going to be a hard set to .7 or 1.4
 isitest = isiref*slope
 ##isiref is based upon the reagents that are used to compare them 
-class 
+  
 
 ###last one #####
 class final:
