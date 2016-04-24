@@ -5,7 +5,7 @@
 #### variables ##### 
 import math
 import time
-import numpy as np s
+import numpy as np 
 import sys
 import RPi.GPIO as GPIO
 import threading 
