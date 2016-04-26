@@ -42,7 +42,7 @@ ptdrawc2= input('pt')
 ptnomdrawc1= r3/t1+r4/t1/2
 ptnomdrawc2= input('pt normal') 
 ##### GPIO  #######
-GPIO,setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BOARD)
 GPIO.cleanup()
 readout1=38
 readout2=37
