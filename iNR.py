@@ -66,6 +66,7 @@ h4=GPIO.setup(heating4, GPIO.OUT)
 but1=GPIO.setup(button1, GPIO.IN)
 but2=GPIO.setup(button2, GPIO.IN)
 #### main program #####
+### me implementing a merge sort for after
 def msort(x):
  results=[]
  if len(x < 2):
@@ -85,6 +86,7 @@ def msort(x):
  result += y[i:]
  result += z[j:]
  return results
+#### this is the class that will be defined as the intial pt values
 class pt__for_inr:
  def close_pt(ptdrawc1,ptdrawc2):
   lg1=ptdrawc1[0]
@@ -173,8 +175,4 @@ class final:
      if (size == 0):
         return
      else:
-         f.readline(size-1)
-#### writing it to a file the` adding it to that and printing it out
-f.close()
-f1.close()
-f2.close()
+		return print( (int_nom_ratio))
