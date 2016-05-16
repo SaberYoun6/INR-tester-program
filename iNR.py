@@ -10,7 +10,7 @@ import sys
 import RPi.GPIO as GPIO
 import threading 
 import collections
-from dateime import timedelta
+from datetime import timedelta
 
 f=open('~/Documents/bloodtest','r+a')
 inr = 0.0
