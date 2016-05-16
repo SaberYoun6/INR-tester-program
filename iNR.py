@@ -13,7 +13,6 @@ import collections
 from datetime import timedelta
 
 inr = 0.0
-header=(size-2)
 value=0
 counter=1
 counters=0
@@ -173,6 +172,6 @@ isitest = isiref*slope
 class final:
    def searching__the_last(self):
      if (size == 0):
-        return
+		return 0
      else:
-		return print( (int_nom_ratio))
+		return print bar
