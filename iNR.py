@@ -178,4 +178,4 @@ class final:
      if (size == 0):
 		return 0
      else:
-		return print bar
+		return  bar
