@@ -12,15 +12,12 @@ import threading
 import collections
 from datetime import timedelta
 
-f=open('~/Documents/bloodtest','r+a')
 inr = 0.0
 header=(size-2)
 value=0
 counter=1
 counters=0
 i=0
-f1 = open('~/Documents/datapoints','w')
-f2 = open('~/Documents/datapoints','r')
 d = timedelta(microseconds=-1)
 (d.seconds, d.mircoseconds)
 t1=(20,0)
