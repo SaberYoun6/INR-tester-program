@@ -160,11 +160,11 @@ class int_nom_rat:
  def int_nom_ratio(self):
   self.inr = (patents_pt/ptnom)^isitest
   if (inr < user_data_low):
-   return (inr + "your level are to low")
+   return (inr + "your level is too low")
   elif (user_data_low <= inr and inr <= user_data_high):
    return(inr + 'your levels are right on')
   else:
-   return(inr + 'your level are to high')
+   return(inr + 'your level is too high')
 
 #### isi 
 #this is going to be a hard set to .7 or 1.4
