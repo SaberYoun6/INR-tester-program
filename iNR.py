@@ -33,6 +33,7 @@ b=0
 c=0
 i=0
 bar = "Fu"
+result={}
 slope_dict={}
 pnom_dict={}
 isi_dict={}
@@ -115,7 +116,7 @@ class pt__for_inr:
      self.pt=((r1/t1)+(r2/t1))/2
      ptcomp=map(lambda x,y:x-y,self.pt,self.ptdelta)   
    else:
-    for l in range(l,1):
+    for l in range(l,t1):
       return self.pt	 
       l += 1
 # this is used to create a class for the ptnom in the inr to usd
@@ -154,6 +155,7 @@ class main_expression:
    user_data_low = input('prompt the users to enter a two digit number ')
    user_data_high = input('prompt the users to enter a two digit number ')
    print(int_nom_ratio +  " and "+ patents_pt)
+   return result[]
    
 ### i got to figure out how to make INR calculation
 class int_nom_rat:
@@ -178,4 +180,4 @@ class final:
      if (size == 0):
 		return 0
      else:
-		return  bar
+		return  result[i-1]
