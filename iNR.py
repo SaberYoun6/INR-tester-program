@@ -85,7 +85,7 @@ def msort(x):
    result.append(z[j])
    j += 1
   else:
-   result.appnd(y[i])
+   result.append(y[i])
    i +=1
  result += y[i:]
  result += z[j:]
@@ -110,7 +110,7 @@ class pt__for_inr:
   self.ptdelta.append(ptdelta)
   self.ptdrawc1.append(ptdrawc1)
   self.ptdrawc1.append(ptdrawc2)
- #this is going to be the try value that we are going to using to define  how closenss of the proximotiy to the patents own blood.
+ #this is going to be the try value that we are going to using to define  how closeness of the proximotiy to the patents own blood.
   def patents__pt(self):
    if (patents_pt in close_pt(patents_pt,slope__isi)):
      self.pt=((r1/t1)+(r2/t1))/2
@@ -119,13 +119,15 @@ class pt__for_inr:
     for l in range(l,t1):
       return self.pt	 
       l += 1
-# this is used to create a class for the ptnom in the inr to usd
+# this is used to create a class for the ptnom in the inr to use 
 class ptnom__for__inr:
  def close__ptnom(ptnomdrawc1 , ptnomdrawc2):
   lg1=ptnomdrawc1[0]
   la1=ptnomdrawc1[1]
   lg2=ptnomdrawc2[0]
   la2=ptnomdrawc2[1]
+  #why was i setting this up?
+  #Maybe for correctional regions 
   innervalues= 0
   innervalues += ((lg1-la1)**2 + (lg2-lg2)**2)
   return math.sprt(innervalue) 
@@ -140,6 +142,9 @@ class ptnom__for__inr:
     self.ptnom= (r3/t1)+(r4/t1)/2
     k += 1
     return ptnom
+  else:
+      return None
+
   
    
       
@@ -160,7 +165,7 @@ class main_expression:
 ### i got to figure out how to make INR calculation
 class int_nom_rat:
  def int_nom_ratio(self):
-  self.inr = (patents_pt/ptnom)^isitest
+  self.inr = (patents_pt()/ptnom())^isitest
   if (inr < user_data_low):
    return (inr + "your level is too low")
   elif (user_data_low <= inr and inr <= user_data_high):
@@ -178,6 +183,6 @@ isitest = isiref*slope
 class final:
    def searching__the_last(self):
      if (size == 0):
-		return 0
+		return int_nom_ratio; 
      else:
 		return  result[i-1]
