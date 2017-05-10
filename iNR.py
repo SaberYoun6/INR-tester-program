@@ -49,25 +49,22 @@ readout1=38
 readout2=37
 readout3=36
 readout4=40
-heating1=1
-heating2=2
-heating3=4
-headtin4=17
+heating1=2
+heating2=4
 ground1=6
-ground2=25
-ground3=14
+ground2=14
 button1=16
 button2=18
+button3=15
 ### setting up the pins
 r1=GPIO.setup(readout1, GPIO.IN)
 h1=GPIO.setup(heating1, GPIO.OUT)
 r2=GPIO.setup(readout2, GPIO.IN)
 h2=GPIO.setup(heating2, GPIO.OUT)
 r3=GPIO.setup(readout3, GPIO.IN)
-h3=GPIO.setup(heating3, GPIO.OUT)
 r4=GPIO.setup(reading4, GPIO.IN)
-h4=GPIO.setup(heating4, GPIO.OUT)
 but1=GPIO.setup(button1, GPIO.IN)
+but3=GPIO.setup(button3,GPIO.IN)
 but2=GPIO.setup(button2, GPIO.IN)
 #### main program #####
 ### me implementing a merge sort for after
@@ -183,6 +180,6 @@ isitest = isiref*slope
 class final:
    def searching__the_last(self):
      if (size == 0):
-		return int_nom_ratio; 
+		return int_nom_ratio 
      else:
 		return  result[i-1]
