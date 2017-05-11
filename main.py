@@ -1,4 +1,4 @@
-## Samuel young 
-## main augrument
-## this will be the one screen that will  only load on the intialization of the INR-tester or if you have to reset the values 
+from iNR import pt__for_inr,ptnom__for__inr,detla, int_nom_rat,final,  
+from datasave import filecreations
+import gui.sh
 
