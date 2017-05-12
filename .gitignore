@@ -88,4 +88,6 @@ ENV/
 # Rope project settings
 .ropeproject
 #edit for swap from vim
-.*.swp
+.py.swp
+.py.swo
+.py.swn
