@@ -2,16 +2,16 @@
 
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
-#### variables ##### 
+#### dependencies ##### 
 import math
 import time
 import numpy as np 
 import sys
-import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO, time, os
 import threading 
 import collections
 from datetime import timedelta
-
+#### variables ####
 inr = 0.0
 value=0
 counter=1
@@ -19,9 +19,9 @@ counters=0
 i=0
 d = timedelta(microseconds=-1)
 (d.seconds, d.mircoseconds)
-t1=(20,0)
-pt = 0.0
-ptnom = 0.0
+time=(20,0)
+prothrombinTime = 0.0
+ProthrombinNormal = 0.0
 isitest=0
 slope=0
 isiref=0
@@ -50,8 +50,10 @@ readout1=38
 readout2=37
 readout3=36
 readout4=40
-heating1=2
-heating2=4
+powerlight=1
+powerlight=17
+l1ght1=2
+light2=4
 ground1=6
 ground2=14
 button1=16
@@ -59,7 +61,7 @@ button2=18
 button3=15
 ### setting up the pins
 r1=GPIO.setup(readout1, GPIO.IN)
-h1=GPIO.setup(heating1, GPIO.OUT)
+h1=GPIO.setup(light1, GPIO.OUT)
 r2=GPIO.setup(readout2, GPIO.IN)
 h2=GPIO.setup(heating2, GPIO.OUT)
 r3=GPIO.setup(readout3, GPIO.IN)
@@ -88,8 +90,13 @@ def msort(x):
  result += y[i:]
  result += z[j:]
  return results
+ def rc_time(
 #### this is the class that will be defined as the intial pt values
-class pt__for_inr:
+class pt_for_inr:
+   def ptDraw1(r1,l1):
+       for count in (t1):
+           
+
  def close_pt(ptdrawc1,ptdrawc2):
   lg1=ptdrawc1[0]
   la1=ptdrawc1[1]
@@ -108,7 +115,7 @@ class pt__for_inr:
   self.ptdrawc1.append(ptdrawc1)
   self.ptdrawc1.append(ptdrawc2)
  #this is going to be the try value that we are going to using to define  how closeness of the proximotiy to the patents own blood.
-  def patents__pt(self):
+  def patents__pt( self,r1,r2,t1):
    if (patents_pt > close_pt(patents_pt,slope__isi)):
      self.pt=((r1/t1)+(r2/t1))/2
      ptcomp=map(lambda x,y:x-y,self.pt,self.ptdelta)   
@@ -128,6 +135,7 @@ class ptnom__for__inr:
   #why was i setting this up?
   #Maybe for correctional regions 
   innervalues = ((lg1-la1)**2 + (lg2-lg2)**2)
+  #where are these vaule begin used 
   return math.sprt(innervalue) 
  def appending__pt__noms(self, ptnomdrawc1,ptnomdrawc2):
   self.ptnomdelta = ptnomdrawc1 - ptnomdrawc2
@@ -151,7 +159,7 @@ class detla:
   if(a < b ):
    return 0
   else:
-   return math.log(patent_pt)-math.log(ptnormallows)/math.log(close_pt)-math.log(ptnormallow)
+   return math.log(patent_pt())-math.log(ptnormallows())/math.log(close_pt())-math.log(ptnormallow())
 class main_expression:
  def main():
   while(i== 1 and n==exit):
