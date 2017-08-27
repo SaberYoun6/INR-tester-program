@@ -19,7 +19,7 @@ counters=0
 i=0
 d = timedelta(microseconds=-1)
 (d.seconds, d.mircoseconds)
-time=(20,0)
+time=(50,0)
 prothrombinTime = 0.0
 ProthrombinNormal = 0.0
 isitest=0
@@ -110,6 +110,8 @@ class lightsenors:
               else:
                   GPIO.stop.r1()
                   GPIO.stop.rp1()
+                  break
+
 
                 
 #### this is the class that will be defined as the intial pt values
