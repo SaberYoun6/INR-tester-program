@@ -105,6 +105,12 @@ class lightsenors:
             GPIO.start.r1()
             GPIO.start.rp1()
             if ( GPIO.start.r1() != relfection()):
+                for count in t1:
+                  light = count.r1().reflection() # this is going to count how long it takes to create a relfection
+              else:
+                  GPIO.stop.r1()
+                  GPIO.stop.rp1()
+
                 
 #### this is the class that will be defined as the intial pt values
 class pt_for_inr:
