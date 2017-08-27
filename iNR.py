@@ -60,17 +60,18 @@ button1=16
 button2=18
 button3=15
 ### setting up the pins
-r1=   GPIO.setup(readout1, GPIO.IN)
-h1=   GPIO.setup(light1, GPIO.OUT)
-r2=   GPIO.setup(readout2, GPIO.IN)
-h2=   GPIO.setup(heating2, GPIO.OUT)
-r3=   GPIO.setup(readout3, GPIO.IN)
-r4=   GPIO.setup(reading4, GPIO.IN)
-rp1=  GPIO.setup(powerlight1, GPIO.OUT)
-rp2=  GPIO.setup(powerlifhr2, GPIO.OUT)
-but1= GPIO.setup(button1, GPIO.IN)
-but3= GPIO.setup(button3,GPIO.IN)
-but2= GPIO.setup(button2, GPIO.IN)
+GPIO.setup(readout1, GPIO.IN)
+GPIO.setup(light1, GPIO.OUT)
+GPIO.setup(readout2, GPIO.IN)
+GPIO.setup(heating2, GPIO.OUT)
+GPIO.setup(readout3, GPIO.IN)
+GPIO.setup(reading4, GPIO.IN)
+GPIO.setup(powerlight1, GPIO.OUT)
+GPIO.setup(powerlifhr2, GPIO.OUT)
+GPIO.setup(button1, GPIO.IN)
+GPIO.setup(button3,GPIO.IN)
+GPIO.setup(button2, GPIO.IN)
+GPIO.setWarings(False)
 #### main program #####
 ### me implementing a merge sort for after
 def msort(x):
@@ -92,16 +93,19 @@ def msort(x):
  result += y[i:]
  result += z[j:]
  return results
+ def distance(self , a):
+     inval=((self*self) - (a*a))
+     dist=math.sqrt(inval)
+     return dist
 class lightsenors:
     def reflection():
-        if (true):
-            return "possible clotting"
+        if (True):
+            return 
         else:
-            return false
-
-    def lightsenor1(r1,rp1,t1):
+            return False
+    def lightsenor(r,rp,t):
         count = 0
-        while (true or count == t1):
+        while (True or count == t1):
             GPIO.start.r1()
             GPIO.start.rp1()
             if ( GPIO.start.r1() != relfection()):
@@ -112,14 +116,19 @@ class lightsenors:
                   GPIO.stop.r1()
                   GPIO.stop.rp1()
                   break
-
-
-                
 #### this is the class that will be defined as the intial pt values
 class pt_for_inr:
-   def ptDraw1(r1,l1):
-       for count in (t1):
-           
+   def ptDraw1(r1,rp2,t1,r2,rp1):
+     lightSenor1 = lightsenors.lightsenor(r1,rp1,t1)
+     lightSenor2 = lightsenors.lightsenor(r2,pr2,t1)
+     if (lightSenor1 <= lightSenor2):
+           uplimit  = lightSenor1.distance(lightSenor2) 
+           return uplimit 
+     elif (lightSenor1 == lightSenor2):
+           return None
+     else (lightSenor1 => lightSenor2):
+           lowerlimit = lightSenor2.distnace(lightSenor1)
+           return lowerlimit
 
  def close_pt(ptdrawc1,ptdrawc2):
   lg1=ptdrawc1[0]
