@@ -50,8 +50,8 @@ readout1=38
 readout2=37
 readout3=36
 readout4=40
-powerlight=1
-powerlight=17
+powerlight1=1
+powerlight2=17
 l1ght1=2
 light2=4
 ground1=6
@@ -60,15 +60,17 @@ button1=16
 button2=18
 button3=15
 ### setting up the pins
-r1=GPIO.setup(readout1, GPIO.IN)
-h1=GPIO.setup(light1, GPIO.OUT)
-r2=GPIO.setup(readout2, GPIO.IN)
-h2=GPIO.setup(heating2, GPIO.OUT)
-r3=GPIO.setup(readout3, GPIO.IN)
-r4=GPIO.setup(reading4, GPIO.IN)
-but1=GPIO.setup(button1, GPIO.IN)
-but3=GPIO.setup(button3,GPIO.IN)
-but2=GPIO.setup(button2, GPIO.IN)
+r1=   GPIO.setup(readout1, GPIO.IN)
+h1=   GPIO.setup(light1, GPIO.OUT)
+r2=   GPIO.setup(readout2, GPIO.IN)
+h2=   GPIO.setup(heating2, GPIO.OUT)
+r3=   GPIO.setup(readout3, GPIO.IN)
+r4=   GPIO.setup(reading4, GPIO.IN)
+rp1=  GPIO.setup(powerlight1, GPIO.OUT)
+rp2=  GPIO.setup(powerlifhr2, GPIO.OUT)
+but1= GPIO.setup(button1, GPIO.IN)
+but3= GPIO.setup(button3,GPIO.IN)
+but2= GPIO.setup(button2, GPIO.IN)
 #### main program #####
 ### me implementing a merge sort for after
 def msort(x):
@@ -90,7 +92,20 @@ def msort(x):
  result += y[i:]
  result += z[j:]
  return results
- def rc_time(
+class lightsenors:
+    def reflection():
+        if (true):
+            return "possible clotting"
+        else:
+            return false
+
+    def lightsenor1(r1,rp1,t1):
+        count = 0
+        while (true or count == t1):
+            GPIO.start.r1()
+            GPIO.start.rp1()
+            if ( GPIO.start.r1() != relfection()):
+                
 #### this is the class that will be defined as the intial pt values
 class pt_for_inr:
    def ptDraw1(r1,l1):
