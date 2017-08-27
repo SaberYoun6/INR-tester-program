@@ -107,6 +107,7 @@ class lightsenors:
             if ( GPIO.start.r1() != relfection()):
                 for count in t1:
                   light = count.r1().reflection() # this is going to count how long it takes to create a relfection
+                  return light
               else:
                   GPIO.stop.r1()
                   GPIO.stop.rp1()
