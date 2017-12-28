@@ -1,5 +1,6 @@
 #!/bin/bash/python
-
+#author: Samuel Young
+#
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
 #### dependencies ##### 
@@ -31,7 +32,6 @@ tester_data =0.0
 a=0
 b=0
 c=0
-i=0
 bar = "Fu"
 result={}
 slope_dict={}
@@ -39,7 +39,7 @@ pnom_dict={}
 isi_dict={}
 pt_dict={}
 ptdrawc2= input('INR')
-ptnomdrawc2= ptdrawc2
+ptnomdrawc2= int(ptdrawc2)
 innervalue = 0
 ##### GPIO  #######
 GPIO.setmode(GPIO.BOARD)
@@ -82,19 +82,19 @@ def msort(x):
  i = 0
  j = 0
  while i <len(y) and j <len(z):
-  if y [i] > z[j]:
+  if y[i] > z[j]:
    result.append(z[j])
    j += 1
   else:
    result.append(y[i])
-   i +=1
+   i+=1
  result += y[i:]
  result += z[j:]
- return results
- def distance(self , a):
-     inval=((self*self) + (a*a))
-     dist=math.sqrt(inval)
-     return dist
+ return result
+def distance(self,a):
+    inval=((self*self) + (a*a))
+    dist=math.sqrt(inval)
+    return dist
 class lightsenors:
     def reflection():
         if (True):
@@ -117,6 +117,7 @@ class lightsenors:
 #### this is the class that will be defined as the intial pt values
 class pt_for_inr:
    def ptDraw1(r1,rp1,t1,r2,rp2):
+    
      lightSenor1 = lightsenors.lightsenor(r1,rp1,t1)
      lightSenor2 = lightsenors.lightsenor(r2,rp2,t1)
      if (lightSenor1 <= lightSenor2):
@@ -131,15 +132,16 @@ class pt_for_inr:
         return lowerlimit
         break
  # set pt_ to a new method by using the distance formula
- def pt__( uplimit, lowerlimit):
+ #def pt__( uplimit, lowerlimit):
  # for counter in range(counter,31):
-   self.ptdelta= ptdrawc1-ptdrawc2
-   return self.ptdelta
+ #  if (uplimit):
+ #  self.ptdelta= ptdrawc1-ptdrawc2
+ #  return self.ptdelta
 # set a point at which to appended the values 
  def appendingpt(self, ptdelta, ptdrawc1,ptrdrawc2):
   self.ptdelta.append(ptdelta)
   self.ptdrawc1.append(ptdrawc1)
-  self.ptdrawc1.append(ptdrawc2)
+ # self.ptdrawc1.append(ptdrawc2)
  #this is going to be the try value that we are going to using to define  how closeness of the proximotiy to the patents own blood.
   def patents__pt( self,r1,r2,t1):
    if (patents_pt > close_pt(patents_pt,slope__isi)):
@@ -168,7 +170,7 @@ class ptnom__for__inr:
   return self.ptnomdelta
  def patent_pt__noms(self):
   if (patent_pt_noms > close_ptnom(patent_pt_noms,slope_isi)):
-   self.ptnom= (r3/t1)+(r4/t1)/2
+   self.ptnom= pt_for_inr.ptdraw1(r1,rp1,t1,r2,rp2)
    ptcom = map(lambda x,y: x-y, self.ptnom,self.ptnomdelta)
    for k in range(k,1):
     self.ptnom= (r3/t1)+(r4/t1)/2
