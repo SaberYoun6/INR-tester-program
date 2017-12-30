@@ -1,6 +1,8 @@
 #!/bin/bash/python
 #author: Samuel Young
 #
+#
+#
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
 #### dependencies ##### 
@@ -33,6 +35,7 @@ a=0
 b=0
 c=0
 bar = "Fu"
+thresold=4.5
 result={}
 slope_dict={}
 pnom_dict={}
@@ -65,7 +68,7 @@ GPIO.setup(heating2, GPIO.OUT)
 GPIO.setup(readout3, GPIO.IN)
 GPIO.setup(reading4, GPIO.IN)
 GPIO.setup(powerlight1, GPIO.OUT)
-GPIO.setup(powerlifhr2, GPIO.OUT)
+GPIO.setup(powerlight2, GPIO.OUT)
 GPIO.setup(button1, GPIO.IN)
 GPIO.setup(button3, GPIO.IN)
 GPIO.setup(button2, GPIO.IN)
@@ -92,45 +95,65 @@ def msort(x):
             result += z[j:]
             return result
 def distance(self,a):
-    inval=((self-a[1])**2 + (self-a[0])**2)
+    inval=((self-a)**2 + (self-a)**2)
     dist=math.sqrt(inval)
     return dist
 class lightsenors:
+    def change(self,a):
+       if ( reset() != self.weight(a) or null = self.weight(a) ):
+           return None
+       elif (weight(a)==):
+          x  weight()+1
     def reflection():
         if (True):
             return 
         else:
             return False
-    def lightsenor(r,rp,t):
+    def weight(a):
+       if( a <= lightsenors.change(a)):
+           return None
+        else:
+            x a + weight(a)
+# r stands for reading in , rp  stands for readingout point, t stand for time, and s is for weight of  slip
+    def lightsenor(self,r,rp,t,s):
         count = 0
         while (True or count <= t):
             GPIO.start.r()
             GPIO.start.rp()
             if ( GPIO.start.r() != relfection()):
-                for count in t:
-                      light = r().reflection() / count # this is going to count how long it takes to create a relfection
-                      return light
+                if (GPIO.start.r() != weight(s):
+                    GPIO.stop.r()
+                    GPIO.stop.rp()
+                else:
+                    for count in t:
+                          light = r().reflection() / count # this is going to count how long it takes to create a relfection
+                          return light
             else:
-                  GPIO.stop.r()
-                  GPIO.stop.rp()
-                  break
+                GPIO.stop.r()
+                GPIO.stop.rp()
+                break
 #### this is the class that will be defined as the intial pt values
 class pt_for_inr:
-    def ptDraw(r1,rp1,t1,r2,rp2):
+    def ptDraw(readout1,light1,t1,readout2,slip):
+        if (weight(slip) >= threshold):
+             lightSenor1 = lightsenors.lightsenor(readout1,light1,t1)
+             lightSenor2 = lightsenors.lightsenor(readout2,light1,t1)
+             if (lightSenor1 <= lightSenor2):
+                uplimit  = lightSenor1.distance(lightSenor2) 
+                x= uplimit
+                break
+             elif (lightSenor1 == lightSenor2):
+                x= lightSenor1
+                break
+             else:
+                 lowerlimit= lightSenor2.distance(lightSenor1)
+                 x= lowerlimit
+                 break
+        else:
+            return None
+        return x
 
-     lightSenor1 = lightsenors.lightsenor(r1,rp1,t1)
-     lightSenor2 = lightsenors.lightsenor(r2,rp2,t1)
-     if (lightSenor1 <= lightSenor2):
-        uplimit  = lightSenor1.distance(lightSenor2) 
-        return uplimit
-        break
-     elif (lightSenor1 == lightSenor2):
-       return None
-       break
-     else:
-         lowerlimit= lightSenor2.distance(lightSenor1)
-         return lowerlimit
-         break
+
 #def ptdelta():
  #set pt_ to a new method by using the distance formula
 #def pt__( uplimit, lowerlimit):
@@ -144,7 +167,7 @@ self.ptdrawc1.append(ptdrawc1)
 #this is going to be the try value that we are going to using to define  how closeness of the proximotiy to the patents own blood.
     def patents__pt( self,r1,r2,t1):
     if (pt_for_inr.patents_pt > .ptnom__for_inr.close_pt(patents_pt,slope__isi)):
-         self.pt=pt_for_inr.ptdraw(r1,rp1,t1,r2,rp2)/2
+         self.pt=pt_for_inr.ptdraw(r1,rp1,t1,r2,)/2
          ptcomp=map(lambda x,y:x-y,self.pt,self.ptdelta)   
        else:
         for l in range(l,1):
@@ -152,9 +175,21 @@ self.ptdrawc1.append(ptdrawc1)
           l += 1
       else:
           return None
-      def close_pt()
+# this varialbe in which is called close pt will find out how close the approximate to each the dataset that was set forth 
+      def close_pt():
+      delta 
+
+
+
+
 # this is used to create a class for the ptnom in the inr to use 
 class ptnom__for__inr:
+    def ptnomdraw(readout3,light2,readout4,t2,slip):
+## slide = standard weight of the slides ,t2 is a timer that i similarly set as timer one , this will be an input into the system, light2 will flash continuiosly until it hit the reflection point, readout 4 is another input variable that should readout similarly to the readout 3
+    lightsenor3 = lightsenors.lightssenor(readout3,light2,t2)
+    lightsenor4 = lightsenors.lightssenor(readout4,light2,t2)
+     
+
     def close__ptnom(ptnomdrawc1 , ptnomdrawc2):
         lg1=ptnomdrawc1[0]
         la1=ptnomdrawc1[1]
@@ -170,7 +205,7 @@ class ptnom__for__inr:
         return self.ptnomdelta
     def patent_pt__noms(self):
         if (patent_pt_noms > close_ptnom(patent_pt_noms,slope_isi)):
-            self.ptnom= pt_for_inr.ptdraw1(r1,rp1,t1,r2,rp2)
+            ptnom= pt_for_inr.ptdraw1(r1,rp1,t1,r2,rp2)
             ptcom = map(lambda x,y: x-y, self.ptnom,self.ptnomdelta)
             for k in range(k,1):
                 self.ptnom= (r3/t1)+(r4/t1)/2
@@ -183,8 +218,8 @@ class ptnom__for__inr:
    
       
 class detla:
-    def slope__isi(self):
-        if(a < b ):
+    def slope__isi(self,a):
+        if(self < a ):
             return None
         else:
             return math.log(patent_pt())-math.log(ptnormallows())/math.log(close_pt())-math.log(ptnormallow())
@@ -193,7 +228,7 @@ class main_expression:
         while(i== 1 and n==exit):
             user_data_low = input('prompt the users to enter a two digit number ')
             user_data_high = input('prompt the users to enter a two digit number ')
-            print(int_nom_ratio +  " and "+ patents_pt)
+            print(int_nom_rat.int_nom_ratio() +  " and "+ patents_pt)
             return result[]
    
 ### i got to figure out how to make INR calculation
@@ -201,11 +236,13 @@ class int_nom_rat:
     def int_nom_ratio(self):
         self.inr = (inr_.patents_pt()/ptnom())^isitest()
         if (inr < user_data_low):
-            return (inr + "your level is too low")
+            inrstatus= (inr + "your level is too low")
         elif (user_data_low <= inr and inr <= user_data_high):
-            return(inr + 'your levels are right on')
+            inrstatus= (inr + 'your levels are right on')
         else:
-            return(inr + 'your level is too high')
+            inrstatus=(inr + 'your level is too high')
+        
+        return inrstatus
 
 #### isi 
 #this is going to be a hard set to .7 or 1.4
