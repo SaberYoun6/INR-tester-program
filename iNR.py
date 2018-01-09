@@ -99,21 +99,23 @@ def distance(self,a):
     dist=math.sqrt(inval)
     return dist
 class lightsenors:
+    def reset():
+    return None
     def change(self,a):
        if ( reset() != self.weight(a) or null = self.weight(a) ):
            return None
-       elif (weight(a)==):
-          x  weight()+1
+       elif (weight(a)== 0 ):
+          x = weight(a)+1
     def reflection():
         if (True):
             return 
         else:
             return False
-    def weight(a):
+    def weight(self,a):
        if( a <= lightsenors.change(a)):
            return None
         else:
-            x a + weight(a)
+            x = a + weight(a)
 # r stands for reading in , rp  stands for readingout point, t stand for time, and s is for weight of  slip
     def lightsenor(self,r,rp,t,s):
         count = 0
