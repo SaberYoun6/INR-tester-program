@@ -17,7 +17,6 @@ from datetime import timedelta
 #### variables ####
 inr = 0.0
 value=0
-counter=1
 counters=0
 i=0
 d = timedelta(microseconds=-1)
@@ -31,10 +30,7 @@ isiref=0
 user_data_low = 0.0
 user_data_high = 0.0
 tester_data =0.0
-a=0
-b=0
-c=0
-weight_thersod= 1 
+weight_thesrold= 1 
 bar = "Fu"
 thresold=4.5
 result={}
@@ -44,7 +40,6 @@ isi_dict={}
 pt_dict={}
 ptdrawc2= input('INR')
 ptnomdrawc2= int(ptdrawc2)
-innervalue = 0
 ##### GPIO  #######
 GPIO.setmode(GPIO.BOARD)
 GPIO.cleanup()
@@ -144,7 +139,7 @@ class lightsenors:
 #### this is the class that will be defined as the intial pt values
 class pt_for_inr:
     def ptDraw(readout1,light1,t1,readout2,slip):
-        if (lightsenors.weight(slip,theshold) >= threshold):
+        if (lightsenors.weight(slip,) >= threshold):
              lightSenor1 = lightsenors.lightsenor(readout1,light1,t1)
              lightSenor2 = lightsenors.lightsenor(readout2,light1,t1)
              if (lightSenor1 <= lightSenor2):
@@ -182,8 +177,7 @@ self.ptdrawc1.append(ptdrawc1)
       else:
           return None
 # this varialbe in which is called close pt will find out how close the approximate to each the dataset that was set forth 
-      def close_pt():
-      delta 
+      #def close_pt():
 
 
 
@@ -228,7 +222,7 @@ class detla:
         if(self < a ):
             return None
         else:
-            return math.log(patent_pt()-ptnormallows(),)/math.log(close_pt()-ptnormallow(),)
+            return math.log(patent_pt()-ptnormallows(),10)/math.log(close_pt()-ptnormallow(),10)
 class main_expression:
     def main():
         while(i== 1 and n==exit):
@@ -239,8 +233,8 @@ class main_expression:
    
 ### i got to figure out how to make INR calculation
 class int_nom_rat:
-    def int_nom_ratio(self):
-        self.inr = isitest*detla.slope_isi()
+    def int_nom_ratio(self,inr):
+        self.inr = detla.slope_isi()**isiref
         if (inr < user_data_low):
            inrstatus= (inr + "your level is too low")
         elif (user_data_low <= inr and inr <= user_data_high):
