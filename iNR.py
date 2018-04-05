@@ -100,22 +100,24 @@ def distance(self,a):
     return dist
 class lightsenors:
     def reset():
-    return None
-    def change(self,a):
+       return None
+    def change(self,a,threshold):
        if ( reset() != self.weight(a) or null = self.weight(a) ):
            return None
-       elif (weight(a)== 0 ):
-          x = weight(a)+1
+       elif (self.weight(a)=> threshold ):
+          x = self.weight(a)+1
+       return x
     def reflection():
         if (True):
-            return 
+            return True 
         else:
             return False
-    def weight(self,a):
-       if( a <= lightsenors.change(a)):
+    def weight(self,a,threshold):
+       if( a <= self.change(a,threshold)):
            return None
-        else:
-            x = a + weight(a)
+       else:
+            x = a + self.weight(a)
+       return x
 # r stands for reading in , rp  stands for readingout point, t stand for time, and s is for weight of  slip
     def lightsenor(self,r,rp,t,s):
         count = 0
@@ -123,7 +125,7 @@ class lightsenors:
             GPIO.start.r()
             GPIO.start.rp()
             if ( GPIO.start.r() != relfection()):
-                if (GPIO.start.r() != weight(s):
+                if (GPIO.start.r() != weight(s)):
                     GPIO.stop.r()
                     GPIO.stop.rp()
                 else:
@@ -137,20 +139,17 @@ class lightsenors:
 #### this is the class that will be defined as the intial pt values
 class pt_for_inr:
     def ptDraw(readout1,light1,t1,readout2,slip):
-        if (weight(slip) >= threshold):
+        if (lightsenors.weight(slip,theshold) >= threshold):
              lightSenor1 = lightsenors.lightsenor(readout1,light1,t1)
              lightSenor2 = lightsenors.lightsenor(readout2,light1,t1)
              if (lightSenor1 <= lightSenor2):
                 uplimit  = lightSenor1.distance(lightSenor2) 
                 x= uplimit
-                break
              elif (lightSenor1 == lightSenor2):
                 x= lightSenor1
-                break
              else:
-                 lowerlimit= lightSenor2.distance(lightSenor1)
-                 x= lowerlimit
-                 break
+                lowerlimit= lightSenor2.distance(lightSenor1)
+                x= lowerlimit
         else:
             return None
         return x
