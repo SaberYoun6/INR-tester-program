@@ -222,7 +222,7 @@ class detla:
         if(self < a ):
             return None
         else:
-            return math.log(patent_pt()-ptnormallows(),10)/math.log(close_pt()-ptnormallow(),10)
+            return math.log(pt_for_inr.patent_pt()-ptnomr_for_inr.ptnormdraw(),10)/math.log(sum(ptnorm_for_inr.patent_pt_noms(),10))/count)
 class main_expression:
     def main():
         while(i== 1 and n==exit):
@@ -234,7 +234,7 @@ class main_expression:
 ### i got to figure out how to make INR calculation
 class int_nom_rat:
     def int_nom_ratio(self,inr):
-        self.inr = detla.slope_isi()**isiref
+        self.inr = detla.slope_isi(a)**isiref
         if (inr < user_data_low):
            inrstatus= (inr + "your level is too low")
         elif (user_data_low <= inr and inr <= user_data_high):
