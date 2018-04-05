@@ -4,9 +4,13 @@
 #/usr/bin/env python 
 import datatime
 import iNR
+ 
+###variable ###
+open('~/.blooddata','W+'
 
 
 oTime= datatime.datatime.now()
-
+  
 print oTime.isofromat()
+print iNR.int_nom_rat.int_nom_ratio()
 
