@@ -34,6 +34,7 @@ tester_data =0.0
 a=0
 b=0
 c=0
+weight_thersod= 1 
 bar = "Fu"
 thresold=4.5
 result={}
@@ -99,24 +100,28 @@ def distance(self,a):
     dist=math.sqrt(inval)
     return dist
 class lightsenors:
-    def reset():
+    def __init__(self, weight_threshold= 1):
+        self.weight_threshold=weight_threshold
+    def reset(self):
        return None
-    def change(self,a,threshold):
-       if ( reset() != self.weight(a) or null = self.weight(a) ):
-           return None
-       elif (self.weight(a)=> threshold ):
-          x = self.weight(a)+1
+    def change(self,a,weight_threshold):
+       if ( self.reset() != self.weight(a, or self.weight(a,) == None ):
+           x = 0
+       elif (self.weight(a,)=> threshold ):
+           x = self.weight(a)+1
+       else:
+           x= None
        return x
-    def reflection():
-        if (True):
+    def reflection(self,rp):
+        if (rp == True):
             return True 
         else:
-            return False
-    def weight(self,a,threshold):
-       if( a <= self.change(a,threshold)):
+            rp = False
+    def weight(self,a,weight_threshold):
+       if( a <= self.change(a,)):
            return None
        else:
-            x = a + self.weight(a)
+            x = a + self.weight(a,)
        return x
 # r stands for reading in , rp  stands for readingout point, t stand for time, and s is for weight of  slip
     def lightsenor(self,r,rp,t,s):
@@ -124,13 +129,13 @@ class lightsenors:
         while (True or count <= t):
             GPIO.start.r()
             GPIO.start.rp()
-            if ( GPIO.start.r() != relfection()):
-                if (GPIO.start.r() != weight(s)):
+            if ( GPIO.start.r() != lightSenors.relfection(rp)):
+                if (GPIO.start.r() != weight(s,)):
                     GPIO.stop.r()
                     GPIO.stop.rp()
                 else:
                     for count in t:
-                          light = r().reflection() / count # this is going to count how long it takes to create a relfection
+                          light = r().lightsenors.reflection(rp) / count # this is going to count how long it takes to create a relfection
                           return light
             else:
                 GPIO.stop.r()
