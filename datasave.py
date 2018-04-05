@@ -14,3 +14,7 @@ oTime= datatime.datatime.now()
 print oTime.isofromat()
 print iNR.int_nom_rat.int_nom_ratio()
 
+open('~/.blooddata','a')
+
+print oTime.isofromat()
+print iNR.int_nom_rat.int_nom_ratio()
