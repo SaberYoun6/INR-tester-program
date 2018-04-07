@@ -22,6 +22,10 @@ i=0
 d = timedelta(microseconds=-1)
 (d.seconds, d.mircoseconds)
 time=(50,0)
+t1=d
+t2=d
+t3=d
+t4=d
 prothrombinTime = 0.0
 ProthrombinNormal = 0.0
 isitest=0
@@ -94,15 +98,15 @@ def distance(self,a):
     inval=((self-a)**2 + (self-a)**2)
     dist=math.sqrt(inval)
     return dist
-class lightsenors:
-    def __init__(self, weight_threshold= 1):
+class LightSenors(object):
+    def __init__(self, weight_threshold= 1,weight):
         self.weight_threshold=weight_threshold
     def reset(self):
        return None
     def change(self,a,weight_threshold):
-       if ( self.reset() != self.weight(a, or self.weight(a,) == None ):
+       if ( self.reset() != self.weight(a) or self.weight(a) == None ):
            x = 0
-       elif (self.weight(a,)=> threshold ):
+       elif (self.weight(a,) => weight_threshold ):
            x = self.weight(a)+1
        else:
            x= None
@@ -112,6 +116,7 @@ class lightsenors:
             return True 
         else:
             rp = False
+        self.reflection(,rp)
     def weight(self,a,weight_threshold):
        if( a <= self.change(a,)):
            return None
@@ -119,7 +124,7 @@ class lightsenors:
             x = a + self.weight(a,)
        return x
 # r stands for reading in , rp  stands for readingout point, t stand for time, and s is for weight of  slip
-    def lightsenor(self,r,rp,t,s):
+    def lightSenor(self,r,rp,t,s):
         count = 0
         while (True or count <= t):
             GPIO.start.r()
@@ -138,10 +143,10 @@ class lightsenors:
                 break
 #### this is the class that will be defined as the intial pt values
 class pt_for_inr:
-    def ptDraw(readout1,light1,t1,readout2,slip):
-        if (lightsenors.weight(slip,) >= threshold):
-             lightSenor1 = lightsenors.lightsenor(readout1,light1,t1)
-             lightSenor2 = lightsenors.lightsenor(readout2,light1,t1)
+    def ptDraw(readout1,readout2,light1,t1,t2,slip,threshold):
+        if (LightSenors.weight(slip,) >= threshold):
+             lightSenor1 = LightSenors.lightSenor(readout1,light1,t1,slip)
+             lightSenor2 = LightSenors.lightSenor(readout2,light1,t2.slip)
              if (lightSenor1 <= lightSenor2):
                 uplimit  = lightSenor1.distance(lightSenor2) 
                 x= uplimit
@@ -151,10 +156,25 @@ class pt_for_inr:
                 lowerlimit= lightSenor2.distance(lightSenor1)
                 x= lowerlimit
         else:
-            return None
+             LightSenors.reset()
         return x
 
-
+class ptNormReader(object):
+    def pt_norm(readout3,readout4,t3,t4,slip,light2,threshold):
+        if (LightSenors.weight(slip,) => threshold):
+            lightSenors3=LightSenors.lightSenors(readout3,light2,t3,slip)
+            lightSenors4=LightSenors.lightSenors(readout4,light2,t4,slip)
+            if (lightSenors3<= lightSenors4):
+                uplimit= lightSenors3.distnace(lightSenors4)
+                x= uplimit
+            elif (lighSenors3 == lightSenors4):
+                x = lightSenors4
+            else:
+                lowerlimt= lightSenors4.distance(lightSenors3)
+                x=lowerlimit
+        else:
+            LightSenors.Reset()
+        return x
 #def ptdelta():
  #set pt_ to a new method by using the distance formula
 #def pt__( uplimit, lowerlimit):
