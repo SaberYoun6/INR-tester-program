@@ -57,9 +57,9 @@ l1ght1=2
 light2=4
 ground1=6
 ground2=14
-button1=16
-button2=18
-button3=15
+buttonup=16
+buttonselection=18
+buttondown=15
 ### setting up the pins
 GPIO.setup(readout1, GPIO.IN)
 GPIO.setup(light1,   GPIO.OUT)
@@ -69,10 +69,10 @@ GPIO.setup(readout3, GPIO.IN)
 GPIO.setup(reading4, GPIO.IN)
 GPIO.setup(powerlight1, GPIO.OUT)
 GPIO.setup(powerlight2, GPIO.OUT)
-GPIO.setup(button1, GPIO.IN)
-GPIO.setup(button3, GPIO.IN)
-GPIO.setup(button2, GPIO.IN)
-GPIO.setWarings(False)
+GPIO.setup(buttonup, GPIO.IN)
+GPIO.setup(buttondown, GPIO.IN)
+GPIO.setup(buttonselection, GPIO.IN)
+GPIO.setWarnings(False)
 #### main program #####
 ### me implementing a merge sort for after
 def msort(x):
@@ -142,39 +142,39 @@ class LightSenors(object):
                 GPIO.stop.rp()
                 break
 #### this is the class that will be defined as the intial pt values
-class pt_for_inr:
+class ptReader:
     def ptDraw(readout1,readout2,light1,t1,t2,slip,threshold):
         if (LightSenors.weight(slip,) >= threshold):
              lightSenor1 = LightSenors.lightSenor(readout1,light1,t1,slip)
              lightSenor2 = LightSenors.lightSenor(readout2,light1,t2.slip)
              if (lightSenor1 <= lightSenor2):
                 uplimit  = lightSenor1.distance(lightSenor2) 
-                x= uplimit
+                ptt= uplimit
              elif (lightSenor1 == lightSenor2):
-                x= lightSenor1
+                ptt= lightSenor1
              else:
                 lowerlimit= lightSenor2.distance(lightSenor1)
-                x= lowerlimit
+                ptt= lowerlimit
         else:
              LightSenors.reset()
-        return x
+        return ptt
 
 class ptNormReader(object):
-    def pt_norm(readout3,readout4,t3,t4,slip,light2,threshold):
+    def ptNorm(readout3,readout4,light2,t3,t4,slip,threshold):
         if (LightSenors.weight(slip,) => threshold):
             lightSenors3=LightSenors.lightSenors(readout3,light2,t3,slip)
             lightSenors4=LightSenors.lightSenors(readout4,light2,t4,slip)
             if (lightSenors3<= lightSenors4):
                 uplimit= lightSenors3.distnace(lightSenors4)
-                x= uplimit
+                ptnorm = uplimit
             elif (lighSenors3 == lightSenors4):
-                x = lightSenors4
+                ptnorm =lightSenors4
             else:
                 lowerlimt= lightSenors4.distance(lightSenors3)
-                x=lowerlimit
+                ptnorm =lowerlimit
         else:
             LightSenors.Reset()
-        return x
+        return ptnorm
 #def ptdelta():
  #set pt_ to a new method by using the distance formula
 #def pt__( uplimit, lowerlimit):
@@ -197,52 +197,13 @@ self.ptdrawc1.append(ptdrawc1)
       else:
           return None
 # this varialbe in which is called close pt will find out how close the approximate to each the dataset that was set forth 
-      #def close_pt():
-
-
-
-
-# this is used to create a class for the ptnom in the inr to use 
-class ptnom__for__inr:
-    def ptnomdraw(readout3,light2,readout4,t2,slip):
-## slide = standard weight of the slides ,t2 is a timer that i similarly set as timer one , this will be an input into the system, light2 will flash continuiosly until it hit the reflection point, readout 4 is another input variable that should readout similarly to the readout 3
-    lightsenor3 = lightsenors.lightssenor(readout3,light2,t2)
-    lightsenor4 = lightsenors.lightssenor(readout4,light2,t2)
-     
-
-    def close__ptnom(ptnomdrawc1 , ptnomdrawc2):
-        lg1=ptnomdrawc1[0]
-        la1=ptnomdrawc1[1]
-        lg2=ptnomdrawc2[0]
-        la2=ptnomdrawc2[1]
-          #why was i setting this up?
-          #Maybe for correctional regions 
-         innervalues = ((lg1-la1)**2 + (lg2-lg2)**2)
-          #where are these vaule begin used 
-         return math.sprt(innervalue) 
-    def appending__pt__noms(self, ptnomdrawc1,ptnomdrawc2):
-        self.ptnomdelta = ptnomdrawc1 - ptnomdrawc2
-        return self.ptnomdelta
-    def patent_pt__noms(self):
-        if (patent_pt_noms > close_ptnom(patent_pt_noms,slope_isi)):
-            ptnom= pt_for_inr.ptdraw1(r1,rp1,t1,r2,rp2)
-            ptcom = map(lambda x,y: x-y, self.ptnom,self.ptnomdelta)
-            for k in range(k,1):
-                self.ptnom= (r3/t1)+(r4/t1)/2
-                k += 1
-                return ptnom
-        else:
-        return None
-
-  
-   
-      
+      #def close_pt(): 
 class detla:
     def slope__isi(self,a):
-        if(self < a ):
+        if(self.a <= a ):
             return None
         else:
-            return math.log(pt_for_inr.patent_pt()-ptnomr_for_inr.ptnormdraw(),10)/math.log(sum(ptnorm_for_inr.patent_pt_noms(),10))/count)
+            return math.log(pt_for_inr.patent_pt()-ptnomr_for_inr.ptnormdraw(),10)/math.log(sum(())/count,10)
 class main_expression:
     def main():
         while(i== 1 and n==exit):
