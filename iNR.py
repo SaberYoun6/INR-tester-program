@@ -129,13 +129,13 @@ class LightSenors(object):
         while (True or count <= t):
             GPIO.start.r()
             GPIO.start.rp()
-            if ( GPIO.start.r() != lightSenors.relfection(rp)):
+            if ( GPIO.start.r() != LightSenors.relfection(rp)):
                 if (GPIO.start.r() != weight(s,)):
                     GPIO.stop.r()
                     GPIO.stop.rp()
                 else:
                     for count in t:
-                          light = r().lightsenors.reflection(rp) / count # this is going to count how long it takes to create a relfection
+                          light = r().LightSenors.reflection(rp) / count # this is going to count how long it takes to create a relfection
                           return light
             else:
                 GPIO.stop.r()
