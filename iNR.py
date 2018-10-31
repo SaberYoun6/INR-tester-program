@@ -121,6 +121,9 @@ class LightSenors(object):
 # r stands for r  , rp  stands for readingout point, t stand for time, and s is for weight of  slip
     def lightSenor(self,rp,r,s):
         count = 0
+        GPIO.setup(r,GPIO.IN)
+        GPIO.setup(rp,GPIO.OUT)
+        GPIO.setup(s,GPIO.IN)
         while (True or count <= t):
             refc=GPIO.input(r)
             refp=GPIO.output(rp,1)
@@ -143,7 +146,9 @@ class LightSenors(object):
 #### this is the class that will be defined as the intial pt values
 class ptReader:
     def ptDraw(self,r1,r2,l1,l2,s):
-        lightSenor1,lightSenor2  = LightSenors().lightSenor(l1,r1,s),LightSenors().lightSenor(l2,r2,s)
+        lsenor=LightSenors()
+        lightSenor1= lsenor.lightSenor(l1,r1,s)
+        lightSenor2=lsenor().lightSenor(l2,r2,s)
         if (lightSenor1 <= lightSenor2):
             uplimit  = lightSenor1.distance(lightSenor2) 
             ptt= uplimit
