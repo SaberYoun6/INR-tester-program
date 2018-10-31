@@ -19,13 +19,8 @@ inr = 0.0
 value=0
 counters=0
 i=0
-d = timedelta(microseconds=-1)
-(d.seconds, d.mircoseconds)
-time=(50,0)
-t1=d
-t2=d
-t3=d
-t4=d
+d = timedelta(microseconds=1)
+#(d.seconds, d.mircoseconds)
 prothrombinTime = 0.0
 ProthrombinNormal = 0.0
 isitest=0
@@ -42,72 +37,72 @@ slope_dict={}
 pnom_dict={}
 isi_dict={}
 pt_dict={}
-ptdrawc2= input('INR')
-ptnomdrawc2= int(ptdrawc2)
+#ptdrawc2= input('INR')
+#ptnomdrawc2= int(ptdrawc2)
 ##### GPIO  #######
 GPIO.setmode(GPIO.BOARD)
-GPIO.cleanup()
 readout1=38
 readout2=37
 readout3=36
 readout4=40
 powerlight1=1
 powerlight2=17
-l1ght1=2
-light2=4
+global l1ght1
+global light2
 ground1=6
 ground2=14
 buttonup=16
 buttonselection=18
 buttondown=15
+weights=22
 ### setting up the pins
-GPIO.setup(readout1, GPIO.IN)
-GPIO.setup(light1,   GPIO.OUT)
-GPIO.setup(readout2, GPIO.IN)
-GPIO.setup(heating2, GPIO.OUT)
-GPIO.setup(readout3, GPIO.IN)
-GPIO.setup(reading4, GPIO.IN)
-GPIO.setup(powerlight1, GPIO.OUT)
-GPIO.setup(powerlight2, GPIO.OUT)
-GPIO.setup(buttonup, GPIO.IN)
-GPIO.setup(buttondown, GPIO.IN)
-GPIO.setup(buttonselection, GPIO.IN)
-GPIO.setWarnings(False)
+#GPIO.setup(weights,GPIO.IN)
+#GPIO.setup(readout1, GPIO.IN)
+#GPIO.setup(light1, GPIO.OUT)
+#GPIO.setup(light2, GPIO.OUT)
+#GPIO.setup(readout2, GPIO.IN)
+#GPIO.setup(heating2, GPIO.OUT)
+#GPIO.setup(readout3, GPIO.IN)
+#GPIO.setup(readout4, GPIO.IN)
+#GPIO.setup(powerlight1, GPIO.OUT)
+#GPIO.setup(powerlight2, GPIO.OUT)
+#GPIO.setup(buttonup, GPIO.IN)
+#GPIO.setup(buttondown, GPIO.IN)
+#GPIO.setup(buttonselection, GPIO.IN)
+#GPIO.setWarnings(False)
 #### main program #####
 ### me implementing a merge sort for after
-def msort(x):
-    results=[]
-    if len(x < 2):
-         return x
-    mid = int(len(x)/2)
-    y= msort (x[:mid])
-    z= msort (x[mid:])
-    i = 0
-    j = 0
-    while i <len(y) and j <len(z):
-        if y[i] > z[j]:
-            result.append(z[j])
-            j += 1
-        else:
-            result.append(y[i])
-            i+=1
-            result += y[i:]
-            result += z[j:]
-            return result
-def distance(self,a):
-    inval=((self-a)**2 + (self-a)**2)
-    dist=math.sqrt(inval)
-    return dist
+#def msort(x):
+#    results=[]
+#    if len(x < 2):
+#         return x
+#    mid = int(len(x)/2)
+#    y= msort (x[:mid])
+#    z= msort (x[mid:])
+#    i = 0
+#    j = 0
+#    while i <len(y) and j <len(z):
+#        if y[i] > z[j]:
+#            result.append(z[j])
+#            j += 1
+#        else:
+#            result.append(y[i])
+#            i+=1
+#            result += y[i:]
+#            result += z[j:]
+#            return result
+#def distance(self,a):
+#    inval=((self-a)**2 + (self-a)**2)
+#    dist=math.sqrt(inval)
+#    return dist
 class LightSenors(object):
-    def __init__(self, weight_threshold= 1,weight):
-        self.weight_threshold=weight_threshold
     def reset(self):
        return None
     def change(self,a,weight_threshold):
        if ( self.reset() != self.weight(a) or self.weight(a) == None ):
            x = 0
-       elif (self.weight(a,) => weight_threshold ):
-           x = self.weight(a)+1
+       elif (self.weight(a,) >= weight_threshold ):
+           x = self.weight(weights)+1
        else:
            x= None
        return x
@@ -116,129 +111,80 @@ class LightSenors(object):
             return True 
         else:
             rp = False
-        self.reflection(,rp)
+        self.reflection(rp,rp)
     def weight(self,a,weight_threshold):
        if( a <= self.change(a,)):
            return None
        else:
             x = a + self.weight(a,)
        return x
-# r stands for reading in , rp  stands for readingout point, t stand for time, and s is for weight of  slip
-    def lightSenor(self,r,rp,t,s):
+# r stands for r  , rp  stands for readingout point, t stand for time, and s is for weight of  slip
+    def lightSenor(self,rp,r,s):
         count = 0
         while (True or count <= t):
-            GPIO.start.r()
-            GPIO.start.rp()
+            refc=GPIO.input(r)
+            refp=GPIO.output(rp,1)
             if ( GPIO.start.r() != LightSenors.relfection(rp)):
-                if (GPIO.start.r() != weight(s,)):
-                    GPIO.stop.r()
-                    GPIO.stop.rp()
+                if (GPIO.start.r() != weight(gpio.input(s),)):
+                    refc.stop()
+                    refp.stop()
+                    GPIO.cleanup()
                 else:
-                    for count in t:
-                          light = r().LightSenors.reflection(rp) / count # this is going to count how long it takes to create a relfection
-                          return light
+                    if refcx != refp:
+                        count = time.perf_counter_ns()
+                    else: 
+                        lightCont = r().LightSenors.reflection(rp()) / count # this is going to count how long it takes to create a relfection
+                        return lightCont
             else:
-                GPIO.stop.r()
-                GPIO.stop.rp()
-                break
+                refc.stop()
+                refp.stop()
+                GPIO.cleanup()
+                continue 
 #### this is the class that will be defined as the intial pt values
 class ptReader:
-    def ptDraw(readout1,readout2,light1,t1,t2,slip,threshold):
-        if (LightSenors.weight(slip,) >= threshold):
-             lightSenor1 = LightSenors.lightSenor(readout1,light1,t1,slip)
-             lightSenor2 = LightSenors.lightSenor(readout2,light1,t2.slip)
-             if (lightSenor1 <= lightSenor2):
-                uplimit  = lightSenor1.distance(lightSenor2) 
-                ptt= uplimit
-             elif (lightSenor1 == lightSenor2):
-                ptt= lightSenor1
-             else:
-                lowerlimit= lightSenor2.distance(lightSenor1)
-                ptt= lowerlimit
+    def ptDraw(self,r1,r2,l1,l2,s):
+        lightSenor1,lightSenor2  = LightSenors().lightSenor(l1,r1,s),LightSenors().lightSenor(l2,r2,s)
+        if (lightSenor1 <= lightSenor2):
+            uplimit  = lightSenor1.distance(lightSenor2) 
+            ptt= uplimit
+        elif (lightSenor1 == lightSenor2):
+            ptt= lightSenor1
         else:
-             LightSenors.reset()
+            lowerlimit= lightSenor2.distance(lightSenor1)
+            ptt= lowerlimit
+        LightSenors.reset()
         return ptt
+    def ptstats(self):
+        light1=2
+        light2=4
+        while True:
+            return self.ptDraw(readout1,readout2,light1,light2,weights)
+      
+### this is the class in which is used to define two other senours and wihat they are used for
 
-class ptNormReader(object):
-    def ptNorm(readout3,readout4,light2,t3,t4,slip,threshold):
-        if (LightSenors.weight(slip,) => threshold):
-            lightSenors3=LightSenors.lightSenors(readout3,light2,t3,slip)
-            lightSenors4=LightSenors.lightSenors(readout4,light2,t4,slip)
-            if (lightSenors3<= lightSenors4):
-                uplimit= lightSenors3.distnace(lightSenors4)
-                ptnorm = uplimit
-            elif (lighSenors3 == lightSenors4):
-                ptnorm =lightSenors4
-            else:
-                lowerlimt= lightSenors4.distance(lightSenors3)
-                ptnorm =lowerlimit
+class ptNormReader():
+    def ptNormDraw(self,readout3,readout4,light1 ,light2,weights,threshold):
+        lightSenors3,lightSenors4=LightSenors.lightSenors(readout3,light1,weights),LightSenors.lightSenors(readout4,light2,weights)
+        if (lightSenors3<= lightSenors4):
+            uplimit= lightSenors3.distnace(lightSenors4)
+            ptnorm = uplimit
+        elif (lighSenors3 == lightSenors4):
+            ptnorm =lightSenors4
         else:
-            LightSenors.Reset()
+            lowerlimt= lightSenors4.distance(lightSenors3)
+            ptnorm =lowerlimit
+        LightSenors.Reset()
         return ptnorm
-#def ptdelta():
- #set pt_ to a new method by using the distance formula
-#def pt__( uplimit, lowerlimit):
-# for counter in range(counter,31):
-#  if (uplimit):
-#  self.ptdelta= ptdrawc1-ptdrawc2
-def appendingpt(self, ptdelta, ptdrawc1,ptrdrawc2):
-self.ptdelta.append(ptdelta)
-self.ptdrawc1.append(ptdrawc1)
-# self.ptdrawc1.append(ptdrawc2)
-#this is going to be the try value that we are going to using to define  how closeness of the proximotiy to the patents own blood.
-    def patents__pt( self,r1,r2,t1):
-    if (pt_for_inr.patents_pt > .ptnom__for_inr.close_pt(patents_pt,slope__isi)):
-         self.pt=pt_for_inr.ptdraw(r1,rp1,t1,r2,)/2
-         ptcomp=map(lambda x,y:x-y,self.pt,self.ptdelta)   
-       else:
-        for l in range(l,1):
-          return self.pt	 
-          l += 1
-      else:
-          return None
-# this varialbe in which is called close pt will find out how close the approximate to each the dataset that was set forth 
-      #def close_pt(): 
-class detla:
-    def slope__isi(self,a):
-        if(self.a <= a ):
-            return None
-        else:
-            return math.log(pt_for_inr.patent_pt()-ptnomr_for_inr.ptnormdraw(),10)/math.log(sum(())/count,10)
-class main_expression:
-    def main():
-        while(i== 1 and n==exit):
-            user_data_low = input('prompt the users to enter a two digit number ')
-            user_data_high = input('prompt the users to enter a two digit number ')
-            print(int_nom_rat.int_nom_ratio() +  " and "+ patents_pt)
-            return result[]
-   
-### i got to figure out how to make INR calculation
-class int_nom_rat:
-    def int_nom_ratio(self,inr):
-        self.inr = detla.slope_isi(a)**isiref
-        if (inr < user_data_low):
-           inrstatus= (inr + "your level is too low")
-        elif (user_data_low <= inr and inr <= user_data_high):
-            inrstatus= (inr + 'your levels are right on')
-        else:
-            inrstatus=(inr + 'your level is too high')
-        
-        return inrstatus
 
-#### isi 
-#this is going to be a hard set to .7 or 1.4
-isitest = isiref*slope
-##isiref is based upon the reagents that are used to compare them 
-  
 
-###last one #####
-class final:
-   def searching__the_last(self):
-     if (size == 0):
-		return None
-     else:
-		return  result[i-1]
+#class mainExpression:
+def main():
+    rList=[2,5,7,9,10,11]
+    if ptReader().ptstats() == False:
+         print(ptReader().ptstats())
+    else :
+         print(bytes(rlist))
 
-##
-main_expression.main()
-
+           
+#mainExpression.main()
+main()
