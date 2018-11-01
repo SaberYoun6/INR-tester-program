@@ -1,4 +1,4 @@
-#!/bin/bash/python
+#!/bin/env python
 #author: Samuel Young
 #
 #
@@ -41,10 +41,10 @@ pt_dict={}
 #ptnomdrawc2= int(ptdrawc2)
 ##### GPIO  #######
 GPIO.setmode(GPIO.BOARD)
-readout1=38
-readout2=37
-readout3=36
-readout4=40
+global readout1
+global readout2
+global readout3
+global readout4
 powerlight1=1
 powerlight2=17
 global l1ght1
@@ -54,7 +54,7 @@ ground2=14
 buttonup=16
 buttonselection=18
 buttondown=15
-weights=22
+global weights
 ### setting up the pins
 #GPIO.setup(weights,GPIO.IN)
 #GPIO.setup(readout1, GPIO.IN)
@@ -119,14 +119,14 @@ class LightSenors(object):
             x = a + self.weight(a,)
        return x
 # r stands for r  , rp  stands for readingout point, t stand for time, and s is for weight of  slip
-    def lightSenor(self,rp,r,s):
+    def lightSenor(self,r,rp,s):
         count = 0
         GPIO.setup(r,GPIO.IN)
         GPIO.setup(rp,GPIO.OUT)
         GPIO.setup(s,GPIO.IN)
         while (True or count <= t):
             refc=GPIO.input(r)
-            refp=GPIO.output(rp,1)
+            refp=GPIO.output(rp,GPIO.HIGH)
             if ( GPIO.start.r() != LightSenors.relfection(rp)):
                 if (GPIO.start.r() != weight(gpio.input(s),)):
                     refc.stop()
@@ -147,8 +147,8 @@ class LightSenors(object):
 class ptReader:
     def ptDraw(self,r1,r2,l1,l2,s):
         lsenor=LightSenors()
-        lightSenor1= lsenor.lightSenor(l1,r1,s)
-        lightSenor2=lsenor().lightSenor(l2,r2,s)
+        lightSenor1=lsenor.lightSenor(l1,r1,s)
+        lightSenor2=lsenor.lightSenor(l2,r2,s)
         if (lightSenor1 <= lightSenor2):
             uplimit  = lightSenor1.distance(lightSenor2) 
             ptt= uplimit
@@ -157,11 +157,10 @@ class ptReader:
         else:
             lowerlimit= lightSenor2.distance(lightSenor1)
             ptt= lowerlimit
-        LightSenors.reset()
+        lsenor.reset()
         return ptt
     def ptstats(self):
-        light1=2
-        light2=4
+        light1,light2,readout1,readout2,weights=2,4,38,37,22
         while True:
             return self.ptDraw(readout1,readout2,light1,light2,weights)
       
@@ -184,12 +183,14 @@ class ptNormReader():
 
 #class mainExpression:
 def main():
+    ptReaders=ptReader()
     rList=[2,5,7,9,10,11]
-    if ptReader().ptstats() == False:
-         print(ptReader().ptstats())
-    else :
-         print(bytes(rlist))
-
+    for i in range(2):
+        if i==1:
+            print(ptReaders.ptstats())
+        else :
+            arr=bytes(rList)
+            print(arr)
            
 #mainExpression.main()
 main()
