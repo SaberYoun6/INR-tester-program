@@ -40,7 +40,7 @@ pt_dict={}
 #ptdrawc2= input('INR')
 #ptnomdrawc2= int(ptdrawc2)
 ##### GPIO  #######
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 global readout1
 global readout2
 global readout3
@@ -159,16 +159,17 @@ class ptReader:
             ptt= lowerlimit
         lsenor.reset()
         return ptt
-    def ptstats(self):
-        light1,light2,readout1,readout2,weights=2,4,38,37,22
+    def ptStats(self):
+        light1,light2,readout1,readout2,weights=7,8,38,37,22
         while True:
             return self.ptDraw(readout1,readout2,light1,light2,weights)
       
 ### this is the class in which is used to define two other senours and wihat they are used for
 
 class ptNormReader():
-    def ptNormDraw(self,readout3,readout4,light1 ,light2,weights,threshold):
-        lightSenors3,lightSenors4=LightSenors.lightSenors(readout3,light1,weights),LightSenors.lightSenors(readout4,light2,weights)
+    def ptNormDraw(self,r3,r4,l1 ,l2,s):
+        lightSenors3=LightSenors.lightSenors(r3,l1,s)
+        lightSenors4=LightSenors.lightSenors(r4,l2,s)
         if (lightSenors3<= lightSenors4):
             uplimit= lightSenors3.distnace(lightSenors4)
             ptnorm = uplimit
@@ -179,15 +180,20 @@ class ptNormReader():
             ptnorm =lowerlimit
         LightSenors.Reset()
         return ptnorm
-
+    def ptNormStats(self):
+        light1,light2,readout3,readout4,weights=7,8,40,35,22
+        while True:
+            return self.ptNormDraw(readout3,readout4,light1,light2,weights)
 
 #class mainExpression:
 def main():
     ptReaders=ptReader()
+    ptNormReaders=ptNormReader()
     rList=[2,5,7,9,10,11]
     for i in range(2):
-        if i==1:
-            print(ptReaders.ptstats())
+        if i==1 or rList[i] == 5:
+          result1 = ptReaders.ptStats()
+          result2 = ptNormReaders.ptNormStats()
         else :
             arr=bytes(rList)
             print(arr)
