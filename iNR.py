@@ -6,6 +6,11 @@
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
 #### dependencies ##### 
+from imutil.video import VideoStream
+from pyzbar import pyzbar
+import imutils 
+import cv2
+import argparse
 import math
 import time
 import numpy as np 
@@ -51,7 +56,7 @@ global l1ght1
 global light2
 ground1=6
 ground2=14
-buttonup=16
+qrcode=16
 buttonselection=18
 buttondown=15
 global weights
@@ -184,6 +189,63 @@ class ptNormReader():
         light1,light2,readout3,readout4,weights=7,8,40,35,22
         while True:
             return self.ptNormDraw(readout3,readout4,light1,light2,weights)
+
+
+class isiRef():
+   def isiRefeqa(self,d1,d2,d3,d4,i_r):
+       slope= d1-d2/d3-d4
+       if i_r => 1.0:
+           return i_r*slope
+       else:
+           return none
+  def  runIsiRefequ(self);
+        
+class iNR_test()
+      def iNR_test(self):
+
+class device_scanner:
+     def verification(self):
+         ap = argparse.ArgumentParser()
+         ap.add_argument("-i","--image", required=True, help="path to input image")
+         args=vars(ap.parse_args())
+
+         print("[INFO] starting video stream ...")
+         vs = VideoSteam(usePiCamera=True).start()
+         time.sleep(60.0)
+
+         found =set()
+
+         while True:
+
+             frame=vs.read()
+             frame=imutils.resize(frame,width=400)
+
+             barcodes=pyzbar.decode(frame)
+             for barcode in barcodes:
+                 (x,y,w,h)= barcode.rect
+                 cv2.retangle(image,(x,y),(x+w,y+h),(0,0,255),2)
+             
+                 barcodeData = barcode.data.decode("utf-8")
+                 barcodeType = barcode.type
+
+                 text= "{} ({})".format(barcodeData, barcodeType)
+             cv2.putText(image,text,(x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255),2)
+             if barcodeData not in found:
+                return None
+             else:
+                 found.intersection(barcodeData)
+
+        cv2.imshow("Barcode Scanner", frame) 
+        key =cv2.waitKey(1) & 0xff
+        
+        if key= ord(ptReader().ptStats()) or key ord(ptNormReader().ptNormStats():
+            break 
+        
+        
+    cv2.destoryAllWindows()
+    vs.stop() 
+
+         
 
 #class mainExpression:
 def main():
