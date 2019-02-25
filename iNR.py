@@ -37,11 +37,7 @@ tester_data =0.0
 weight_thesrold= 1 
 bar = "Fu"
 thresold=4.5
-result={}
-slope_dict={}
-pnom_dict={}
-isi_dict={}
-pt_dict={}
+result=0.0
 #ptdrawc2= input('INR')
 #ptnomdrawc2= int(ptdrawc2)
 ##### GPIO  #######
@@ -138,7 +134,7 @@ class LightSenors(object):
                     refp.stop()
                     GPIO.cleanup()
                 else:
-                    if refcx != refp:
+                    if refc != refp:
                         count = time.perf_counter_ns()
                     else: 
                         lightCont = r().LightSenors.reflection(rp()) / count # this is going to count how long it takes to create a relfection
@@ -152,6 +148,7 @@ class LightSenors(object):
 class ptReader:
     def ptDraw(self,r1,r2,l1,l2,s):
         lsenor=LightSenors()
+        print("Acessing LightSenors");
         lightSenor1=lsenor.lightSenor(l1,r1,s)
         lightSenor2=lsenor.lightSenor(l2,r2,s)
         if (lightSenor1 <= lightSenor2):
@@ -161,7 +158,7 @@ class ptReader:
             ptt= lightSenor1
         else:
             lowerlimit= lightSenor2.distance(lightSenor1)
-            ptt= lowerlimit
+            ptt= abs(lowerlimit)
         lsenor.reset()
         return ptt
     def ptStats(self):
