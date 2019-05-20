@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python3
 #author: Samuel Young
 #
 #
@@ -6,17 +6,8 @@
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
 #### dependencies ##### 
-from imutil.video import VideoStream
-from pyzbar import pyzbar
-import imutils 
-import cv2
-import argparse
-import math
 import time
-import numpy as np 
-import sys
-import RPi.GPIO as GPIO, time, os
-import threading 
+import RPi.GPIO as GPIO
 import collections
 from datetime import timedelta
 #### variables ####
@@ -24,238 +15,68 @@ inr = 0.0
 value=0
 counters=0
 i=0
-d = timedelta(microseconds=1)
-#(d.seconds, d.mircoseconds)
-prothrombinTime = 0.0
-ProthrombinNormal = 0.0
-isitest=0
-slope=0
-isiref=0
-user_data_low = 0.0
-user_data_high = 0.0
-tester_data =0.0
-weight_thesrold= 1 
-bar = "Fu"
-thresold=4.5
-result=0.0
 #ptdrawc2= input('INR')
 #ptnomdrawc2= int(ptdrawc2)
 ##### GPIO  #######
 GPIO.setmode(GPIO.BCM)
-global readout1
-global readout2
-global readout3
-global readout4
-powerlight1=1
-powerlight2=17
-global l1ght1
-global light2
-ground1=6
-ground2=14
-qrcode=16
-buttonselection=18
-buttondown=15
-global weights
-### setting up the pins
-#GPIO.setup(weights,GPIO.IN)
-#GPIO.setup(readout1, GPIO.IN)
-#GPIO.setup(light1, GPIO.OUT)
-#GPIO.setup(light2, GPIO.OUT)
-#GPIO.setup(readout2, GPIO.IN)
-#GPIO.setup(heating2, GPIO.OUT)
-#GPIO.setup(readout3, GPIO.IN)
-#GPIO.setup(readout4, GPIO.IN)
-#GPIO.setup(powerlight1, GPIO.OUT)
-#GPIO.setup(powerlight2, GPIO.OUT)
-#GPIO.setup(buttonup, GPIO.IN)
-#GPIO.setup(buttondown, GPIO.IN)
-#GPIO.setup(buttonselection, GPIO.IN)
-#GPIO.setWarnings(False)
-#### main program #####
-### me implementing a merge sort for after
-#def msort(x):
-#    results=[]
-#    if len(x < 2):
-#         return x
-#    mid = int(len(x)/2)
-#    y= msort (x[:mid])
-#    z= msort (x[mid:])
-#    i = 0
-#    j = 0
-#    while i <len(y) and j <len(z):
-#        if y[i] > z[j]:
-#            result.append(z[j])
-#            j += 1
-#        else:
-#            result.append(y[i])
-#            i+=1
-#            result += y[i:]
-#            result += z[j:]
-#            return result
-#def distance(self,a):
-#    inval=((self-a)**2 + (self-a)**2)
-#    dist=math.sqrt(inval)
-#    return dist
+GPIO.setwarnings(False)
 class LightSenors(object):
+    def __init__(self, light, reflection):
+        self.light = light
+        self.reflection= reflection
     def reset(self):
-       return None
-    def change(self,a,weight_threshold):
-       if ( self.reset() != self.weight(a) or self.weight(a) == None ):
-           x = 0
-       elif (self.weight(a,) >= weight_threshold ):
-           x = self.weight(weights)+1
-       else:
-           x= None
-       return x
-    def reflection(self,rp):
-        if (rp == True):
-            return True 
+       GPIO.cleanup()
+       print("Gpio Cleanup has been done")
+    def reflection(self):
+        if self:
+            return True
         else:
-            rp = False
-        self.reflection(rp,rp)
-    def weight(self,a,weight_threshold):
-       if( a <= self.change(a,)):
-           return None
-       else:
-            x = a + self.weight(a,)
-       return x
-# r stands for r  , rp  stands for readingout point, t stand for time, and s is for weight of  slip
-    def lightSenor(self,r,rp,s):
+            return False
+    def lightSenor(self):
         count = 0
-        GPIO.setup(r,GPIO.IN)
-        GPIO.setup(rp,GPIO.OUT)
-        GPIO.setup(s,GPIO.IN)
-        while (True or count <= t):
-            refc=GPIO.input(r)
-            refp=GPIO.output(rp,GPIO.HIGH)
-            if ( GPIO.start.r() != LightSenors.relfection(rp)):
-                if (GPIO.start.r() != weight(gpio.input(s),)):
-                    refc.stop()
-                    refp.stop()
-                    GPIO.cleanup()
-                else:
-                    if refc != refp:
-                        count = time.perf_counter_ns()
-                    else: 
-                        lightCont = r().LightSenors.reflection(rp()) / count # this is going to count how long it takes to create a relfection
-                        return lightCont
+        value= False
+        print("setup pins the And checking system to verify that it works")
+        GPIO.setup(self.reflection, GPIO.OUT)
+        GPIO.output(self.reflection,GPIO.LOW)
+        GPIO.setup(self.light,GPIO.OUT) 
+        GPIO.output(self.light,GPIO.HIGH)
+        time.sleep(15.0)
+
+        print("Setup the input pin")
+        GPIO.setup(self.reflection,GPIO.IN)
+        print( "Firing up the collection tools")
+        while (value == True ):
+            refc= GPIO.input(self.reflection)
+            light_p =GPIO.output(self.light,GPIO.HIGH)
+            if ( not refc.relfection()):
+                count = time.perf_counter()
+                print(count)
             else:
-                refc.stop()
-                refp.stop()
-                GPIO.cleanup()
-                continue 
-#### this is the class that will be defined as the intial pt values
-class ptReader:
-    def ptDraw(self,r1,r2,l1,l2,s):
-        lsenor=LightSenors()
-        print("Acessing LightSenors");
-        lightSenor1=lsenor.lightSenor(l1,r1,s)
-        lightSenor2=lsenor.lightSenor(l2,r2,s)
-        if (lightSenor1 <= lightSenor2):
-            uplimit  = lightSenor1.distance(lightSenor2) 
-            ptt= uplimit
-        elif (lightSenor1 == lightSenor2):
-            ptt= lightSenor1
-        else:
-            lowerlimit= lightSenor2.distance(lightSenor1)
-            ptt= abs(lowerlimit)
-        lsenor.reset()
-        return ptt
-    def ptStats(self):
-        light1,light2,readout1,readout2,weights=7,8,38,37,22
-        while True:
-            return self.ptDraw(readout1,readout2,light1,light2,weights)
+                print("Light should be turning off")
+                light_n = GPIO.output(self.light,GPIO.LOW)
+                print(count)
+                value= True
+        return count
+#### this is the class that will be definedas how the device will calculate the ptt\ptNorm  values
+class ptt_and_norm_reader:
+    def __init__(self,light, reflection):
+        self.light = light
+        self.reflection = reflection
+    def ptt_and_norm_draw(self):
+        l_senor=LightSenors(self.light,self.reflection)
+        print(" PTT\PTNorm LightSenors array in use")
+        light_senor=l_senor.lightSenor()
+        l_senor.reset()
+        return light_senor
+    def ptt_and_norm(self):
+        pt_drawing = self.ptt_and_norm_draw()
+        return pt_drawing
+
       
-### this is the class in which is used to define two other senours and wihat they are used for
-
-class ptNormReader():
-    def ptNormDraw(self,r3,r4,l1 ,l2,s):
-        lightSenors3=LightSenors.lightSenors(r3,l1,s)
-        lightSenors4=LightSenors.lightSenors(r4,l2,s)
-        if (lightSenors3<= lightSenors4):
-            uplimit= lightSenors3.distnace(lightSenors4)
-            ptnorm = uplimit
-        elif (lighSenors3 == lightSenors4):
-            ptnorm =lightSenors4
-        else:
-            lowerlimt= lightSenors4.distance(lightSenors3)
-            ptnorm =lowerlimit
-        LightSenors.Reset()
-        return ptnorm
-    def ptNormStats(self):
-        light1,light2,readout3,readout4,weights=7,8,40,35,22
-        while True:
-            return self.ptNormDraw(readout3,readout4,light1,light2,weights)
-
-
-class isiRef():
-   def isiRefeqa(self,d1,d2,d3,d4,i_r):
-       slope= d1-d2/d3-d4
-       if i_r => 1.0:
-           return i_r*slope
-       else:
-           return none
-  def  runIsiRefequ(self);
-        
-class iNR_test()
-      def iNR_test(self):
-
-class device_scanner:
-     def verification(self):
-         ap = argparse.ArgumentParser()
-         ap.add_argument("-i","--image", required=True, help="path to input image")
-         args=vars(ap.parse_args())
-
-         print("[INFO] starting video stream ...")
-         vs = VideoSteam(usePiCamera=True).start()
-         time.sleep(60.0)
-
-         found =set()
-
-         while True:
-
-             frame=vs.read()
-             frame=imutils.resize(frame,width=400)
-
-             barcodes=pyzbar.decode(frame)
-             for barcode in barcodes:
-                 (x,y,w,h)= barcode.rect
-                 cv2.retangle(image,(x,y),(x+w,y+h),(0,0,255),2)
-             
-                 barcodeData = barcode.data.decode("utf-8")
-                 barcodeType = barcode.type
-
-                 text= "{} ({})".format(barcodeData, barcodeType)
-             cv2.putText(image,text,(x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255),2)
-             if barcodeData not in found:
-                return None
-             else:
-                 found.intersection(barcodeData)
-
-        cv2.imshow("Barcode Scanner", frame) 
-        key =cv2.waitKey(1) & 0xff
-        
-        if key= ord(ptReader().ptStats()) or key ord(ptNormReader().ptNormStats():
-            break 
-        
-        
-    cv2.destoryAllWindows()
-    vs.stop() 
-
-         
-
-#class mainExpression:
+      
 def main():
-    ptReaders=ptReader()
-    ptNormReaders=ptNormReader()
-    rList=[2,5,7,9,10,11]
-    for i in range(2):
-        if i==1 or rList[i] == 5:
-          result1 = ptReaders.ptStats()
-          result2 = ptNormReaders.ptNormStats()
-        else :
-            arr=bytes(rList)
-            print(arr)
-           
-#mainExpression.main()
+    ptt_reader0=ptt_and_norm_reader(38,24)# ,ptt_reader1=,ptt_and_norm_reader(8,40)
+    result0 = ptt_reader0.ptt_and_norm()#,result1= ,ptt_reader2.ptt_and_norm()
+    print(result0)
 main()
+
