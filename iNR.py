@@ -20,20 +20,20 @@ i=0
 ##### GPIO  #######
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-class LightSenors(object):
+class LightSenor(object):
     def __init__(self, light, reflection):
         self.light = light
         self.reflection= reflection
     def reset(self):
        GPIO.cleanup()
        print("Gpio Cleanup has been done")
-    def reflection(self):
+    def reflections(self):
         if self:
             return True
         else:
             return False
-    def lightSenor(self):
-        count = 0
+    def light_Senor(self):
+        count = 0.0
         value= False
         print("setup pins the And checking system to verify that it works")
         GPIO.setup(self.reflection, GPIO.OUT)
@@ -45,17 +45,24 @@ class LightSenors(object):
         print("Setup the input pin")
         GPIO.setup(self.reflection,GPIO.IN)
         print( "Firing up the collection tools")
-        while (value == True ):
+        print(type(count))
+        print(type(value))
+        init_time= time.perf_counter()
+        while (1 or count >= 50.0+init_time):
+            print(value)
+            count=time.perf_counter()
+            print("pin input authorized")
             refc= GPIO.input(self.reflection)
+            print("LED on")
             light_p =GPIO.output(self.light,GPIO.HIGH)
-            if ( not refc.relfection()):
-                count = time.perf_counter()
+            print(count)
+            '''if ( value == refc.reflection()):
                 print(count)
             else:
                 print("Light should be turning off")
                 light_n = GPIO.output(self.light,GPIO.LOW)
                 print(count)
-                value= True
+                '''
         return count
 #### this is the class that will be definedas how the device will calculate the ptt\ptNorm  values
 class ptt_and_norm_reader:
@@ -63,9 +70,9 @@ class ptt_and_norm_reader:
         self.light = light
         self.reflection = reflection
     def ptt_and_norm_draw(self):
-        l_senor=LightSenors(self.light,self.reflection)
+        l_senor=LightSenor(self.light,self.reflection)
         print(" PTT\PTNorm LightSenors array in use")
-        light_senor=l_senor.lightSenor()
+        light_senor=l_senor.light_Senor()
         l_senor.reset()
         return light_senor
     def ptt_and_norm(self):
@@ -75,8 +82,11 @@ class ptt_and_norm_reader:
       
       
 def main():
-    ptt_reader0=ptt_and_norm_reader(38,24)# ,ptt_reader1=,ptt_and_norm_reader(8,40)
-    result0 = ptt_reader0.ptt_and_norm()#,result1= ,ptt_reader2.ptt_and_norm()
-    print(result0)
+    l_senor=LightSenor(24,18) 
+    value=l_senor.light_Senor()
+    print(value)
+    #ptt_reader0=ptt_and_norm_reader(24,18) #(light,senor)  ,ptt_reader1=,ptt_and_norm_reader(8,40)
+    #result0 = ptt_reader0.ptt_and_norm()#,result1= ,ptt_reader2.ptt_and_norm()
+    #print(result0)
 main()
 
