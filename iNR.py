@@ -33,7 +33,7 @@ class LightSenor(object):
         else:
             return False
     def light_Senor(self):
-        count = 0.0
+        count = 0
         value= False
         print("setup pins the And checking system to verify that it works")
         GPIO.setup(self.reflection, GPIO.OUT)
@@ -48,14 +48,21 @@ class LightSenor(object):
         print(type(count))
         print(type(value))
         init_time= time.perf_counter()
-        while (1 or count >= 50.0+init_time):
-            print(value)
-            count=time.perf_counter()
+        while (1 or (!value)):
             print("pin input authorized")
             refc= GPIO.input(self.reflection)
-            print("LED on")
-            light_p =GPIO.output(self.light,GPIO.HIGH)
-            print(count)
+            if refc == 0:
+               print("LED on")
+               GPIO.output(self.light,GPIO.HIGH)
+               count =+ 1 
+               if count == 50:
+                   value =True
+            elif .01<= refc and refc <= .99:
+               
+               GPIO.output(self.light,GPIO.HIGH)
+            else: 
+               GPIO.output(self.light,GPIO.LOW)
+               value = True
             '''if ( value == refc.reflection()):
                 print(count)
             else:
