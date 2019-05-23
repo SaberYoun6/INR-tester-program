@@ -5,6 +5,10 @@
 #
 ###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
 
+# 
+# 
+#
+
 #### dependencies ##### 
 import time
 import RPi.GPIO as GPIO
@@ -27,48 +31,57 @@ class LightSenor(object):
     def reset(self):
        GPIO.cleanup()
        print("Gpio Cleanup has been done")
-'''
-    def reflections(self):
-        if self:
-            return True
-        else:
-            return False
-'''
     def light_Senor(self):
         count = 0
+        delta_time = 0.0
         value= False
-        print("setup pins the And checking system to verify that it works")
+        print("setting up  pins")
         GPIO.setup(self.reflection, GPIO.OUT)
         GPIO.output(self.reflection,GPIO.LOW)
         GPIO.setup(self.light,GPIO.OUT) 
         GPIO.output(self.light,GPIO.HIGH)
-        time.sleep(15.0)
-
+        time.sleep(7.5)
         print("Setup the input pin")
         GPIO.setup(self.reflection,GPIO.IN)
         print( "Firing up the collection tools")
-        print(type(count))
-        print(type(value))
         init_time= time.perf_counter()
-        while (1 or ( value == True or count <= 0)):
+        timer1=time.time()
+        while ( 1  or  value == True):
             print("pin input authorized")
             refc= GPIO.input(self.reflection)
+            GPIO.output(self.light,GPIO.HIGH)
+            final_time = time.perf_counter()
+            timer2=time.time()
+            count = count + 1
+            print (count)
+            print(value)
+            print(refc)
             if refc == 0:
                print("LED on")
                GPIO.output(self.light,GPIO.HIGH)
-               count =+ 1 
-               if count == 50:
+               print('Checking status of count : %d\n checking the inital time : %f\n' %(count, init_time) ) 
+               timer2=time.time()
+               if count == 359901:
                    value = True
+                   print("exceed time granted")
+                   delta_time = final_time - init_time
+                   GPIO.output(self.light,GPIO.LOW)
+                   final_timer = timer2-timer1
+                   print(final_timer)
+                   break
             elif .01<= refc and refc <= .99:
                print("LED on")
                GPIO.output(self.light,GPIO.HIGH)
-               if count == 50:
-                   value = True:
+               if count == 359901:
+                   value = True
+                   print("exceed time granted")
+                   delta_time = final_time - init_time
+                   GPIO.output(self.light,GPIO.LOW)
+                   break
             else: 
-                print("LED OFF")
+               print("LED OFF")
                GPIO.output(self.light,GPIO.LOW)
                value = True
-               final_time = time.perf_counter()
                delta_time = final_time - init_time
         return delta_time
 #### this is the class that will be definedas how the device will calculate the ptt\ptNorm  values
