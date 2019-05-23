@@ -27,11 +27,13 @@ class LightSenor(object):
     def reset(self):
        GPIO.cleanup()
        print("Gpio Cleanup has been done")
+'''
     def reflections(self):
         if self:
             return True
         else:
             return False
+'''
     def light_Senor(self):
         count = 0
         value= False
@@ -48,7 +50,7 @@ class LightSenor(object):
         print(type(count))
         print(type(value))
         init_time= time.perf_counter()
-        while (1 or (!value)):
+        while (1 or ( value == True or count <= 0)):
             print("pin input authorized")
             refc= GPIO.input(self.reflection)
             if refc == 0:
@@ -56,21 +58,19 @@ class LightSenor(object):
                GPIO.output(self.light,GPIO.HIGH)
                count =+ 1 
                if count == 50:
-                   value =True
+                   value = True
             elif .01<= refc and refc <= .99:
-               
+               print("LED on")
                GPIO.output(self.light,GPIO.HIGH)
+               if count == 50:
+                   value = True:
             else: 
+                print("LED OFF")
                GPIO.output(self.light,GPIO.LOW)
                value = True
-            '''if ( value == refc.reflection()):
-                print(count)
-            else:
-                print("Light should be turning off")
-                light_n = GPIO.output(self.light,GPIO.LOW)
-                print(count)
-                '''
-        return count
+               final_time = time.perf_counter()
+               delta_time = final_time - init_time
+        return delta_time
 #### this is the class that will be definedas how the device will calculate the ptt\ptNorm  values
 class ptt_and_norm_reader:
     def __init__(self,light, reflection):
@@ -91,6 +91,7 @@ class ptt_and_norm_reader:
 def main():
     l_senor=LightSenor(24,18) 
     value=l_senor.light_Senor()
+    l_senor.reset()
     print(value)
     #ptt_reader0=ptt_and_norm_reader(24,18) #(light,senor)  ,ptt_reader1=,ptt_and_norm_reader(8,40)
     #result0 = ptt_reader0.ptt_and_norm()#,result1= ,ptt_reader2.ptt_and_norm()
