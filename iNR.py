@@ -9,14 +9,13 @@
 # 
 #
 __author__ = "Samuel Young"
-__copyright__ =" Copyright 2015, The INR project"
+__copyright__ =" Copyright 2016, The INR project"
 __credits__ = ["Samuel Young"]
 __license__ = "GPL"
 __versoion__ = "0.0.5"
 __maintianer__= "Samuel Young"
 __email__ = "samuel.young.103@gmail.com"
 __status__ = "pre-beta"
-
 #### dependencies ##### 
 import time
 import RPi.GPIO as GPIO
@@ -105,6 +104,8 @@ class ptt_and_norm_reader:
         return light_senor
     def ptt_and_norm(self):
         pt_drawing = self.ptt_and_norm_draw()
+        for i in pt_drawing:
+           
         return pt_drawing
 
       
