@@ -46,7 +46,10 @@ class LightSenor(object):
         GPIO.setup(self.reflection, GPIO.OUT)
         GPIO.output(self.reflection,GPIO.LOW)
         GPIO.setup(self.light,GPIO.OUT) 
-        GPIO.output(self.light,GPIO.HIGH)
+        led_off= GPIO.output(self.light,GPIO.LOW)
+        time.sleep(7.5)
+        print("testing light")
+        led_on=GPIO.output(self.light,GPIO.HIGH)
         time.sleep(7.5)
         print("Setup the input pin")
         GPIO.setup(self.reflection,GPIO.IN)
@@ -56,7 +59,7 @@ class LightSenor(object):
         while ( 1  or  value == True):
             print("pin input authorized")
             refc= GPIO.input(self.reflection)
-            GPIO.output(self.light,GPIO.HIGH)
+            led_on
             final_time = time.perf_counter()
             timer2=time.time()
             count = count + 1
@@ -65,29 +68,29 @@ class LightSenor(object):
             print(refc)
             if refc == 0:
                print("LED on")
-               GPIO.output(self.light,GPIO.HIGH)
+               led_on
                print('Checking status of count : %d\n checking the inital time : %f\n' %(count, init_time) ) 
                timer2=time.time()
                if count == 359901:
                    value = True
                    print("exceed time granted")
                    delta_time = final_time - init_time
-                   GPIO.output(self.light,GPIO.LOW)
-                   final_timer = timer2-timer1
-                   print(final_timer)
+                   print("Turning off LED")
+                   led_off
                    break
             elif .01<= refc and refc <= .99:
                print("LED on")
-               GPIO.output(self.light,GPIO.HIGH)
+               led_on
                if count == 359901:
                    value = True
                    print("exceed time granted")
                    delta_time = final_time - init_time
-                   GPIO.output(self.light,GPIO.LOW)
+                   print("Turning off LED")
+                   led_off
                    break
             else: 
                print("LED OFF")
-               GPIO.output(self.light,GPIO.LOW)
+               led_off
                value = True
                delta_time = final_time - init_time
         return delta_time
