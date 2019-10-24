@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-#author: Samuel Young
 #
 #
 #
-###is to try and create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood.
-
+### Create a python like tester file to  see if we can obtain the international normalized ratio and the ptt of blood. This is going to be used for to get the inital results for the INR ratio. then It'll be called again to figure out what is going on.  
 # 
 # 
 #
@@ -17,6 +15,7 @@ __maintianer__= "Samuel Young"
 __email__ = "samuel.young.103@gmail.com"
 __status__ = "beta"
 #### dependencies ##### 
+
 import time
 import RPi.GPIO as GPIO
 import collections
@@ -113,10 +112,10 @@ def LightSensor_thread(*args):
 
 main()
    
-GPIO.add_event_callback(int(val_sensor0) , LightSensor_thread)
-GPIO.add_event_callback(int(val_sensor1) , LightSensor_thread)
-GPIO.add_event_callback(int(val_sensor2) , LightSensor_thread)
-GPIO.add_event_callback(int(val_sensor3) , LightSensor_thread)
+GPIO.add_event_callback((l_sensor0) , LightSensor_thread())
+GPIO.add_event_callback((l_sensor1) , LightSensor_thread())
+GPIO.add_event_callback((l_sensor2) , LightSensor_thread())
+GPIO.add_event_callback((l_sensor3) , LightSensor_thread())
 
 l_sensor0.reset()
 l_sensor1.reset()
