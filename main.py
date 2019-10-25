@@ -7,8 +7,8 @@ from threading import Thread,Lock
 
 
 def main():
-  ptt1=iNR.ptt_and_norm_reader(24,18)
-  ptt2=iNr.ptt_and_norm_reader(25,16)
+  ptt1=iNR.pttAndNormReader(24, 18)
+  ptt2=iNR.ptt_and_norm_reader(25,16)
 
   print(ptt1.ptt_and_norm())
 
