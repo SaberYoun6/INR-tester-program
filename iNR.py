@@ -74,7 +74,7 @@ class LightSensor(object):
                led_on
                timer2=time.time()
                if count == 359901:
-                   value = True
+                   value = False
                    final_time = time.perf_counter()
                    delta_time = final_time - init_time
                    GPIO.output(self.light,GPIO.LOW)
@@ -83,14 +83,14 @@ class LightSensor(object):
                led_on
                time.sleep(.000000001)
                if count == 359901:
-                   value = True
+                   value = False
                    final_time = time.perf_counter()
                    delta_time = final_time - init_time
                    GPIO.output(self.light,GPIO.LOW)
                    break
             else: 
                GPIO.output(self.light,GPIO.LOW)
-               value = True
+               value = False
                final_time = time.perf_counter()
                delta_time = final_time - init_time
                break
@@ -113,16 +113,10 @@ class ptt_and_norm_reader(object):
         l_sensor,reset()
         return light_sensor
     def ptt_reader(self):
-        ask = 0 
         pt_drawing = self.ptt_draw()
-        for i in pt_drawing:
-            ask=i
         return pt_drawing
     def norm_reader(self):
-        ask = 0
         norm_drawing = self.norm_draw()
-        for i in norm_drawing:
-            ask=i
         return norm_drawing
 
 
