@@ -61,12 +61,12 @@ class LightSensor(object):
         init_time= time.perf_counter()
         timer1=time.time()
         '''
-        this while is here to send it through the value to reu
+        This while is here to send it through the to try and find a value that will be at 
         '''
         while ( 1  or  value == True):
             refc= GPIO.input(self.reflection)
             led_on
-            time.sleep(.0000001)
+            time.sleep(.000000001)
             final_time = time.perf_counter()
             timer2 = time.time()
             count = count + 1
@@ -75,20 +75,23 @@ class LightSensor(object):
                timer2=time.time()
                if count == 359901:
                    value = True
+                   final_time = time.perf_counter()
                    delta_time = final_time - init_time
                    GPIO.output(self.light,GPIO.LOW)
                    break
             elif .01<= refc and refc <= .99:
                led_on
-               time.sleep(.000001)
+               time.sleep(.000000001)
                if count == 359901:
                    value = True
+                   final_time = time.perf_counter()
                    delta_time = final_time - init_time
                    GPIO.output(self.light,GPIO.LOW)
                    break
             else: 
                GPIO.output(self.light,GPIO.LOW)
                value = True
+               final_time = time.perf_counter()
                delta_time = final_time - init_time
                break
         return delta_time
@@ -122,6 +125,10 @@ class ptt_and_norm_reader(object):
             ask=i
         return norm_drawing
 
+
+'''
+these are the four threads that I am trying to run to get any average for the individual 
+'''
 ptt_t0  = threading.Thread(target = light_Sensor.LightSensor args=(24,18))
 norm_t0 = threading.Thread(target = light_Sensor.LightSensor args=(23,17))
 ptt_t1  = threading.Thread(target = light_Sensor.LightSensor args=(22,16))
@@ -134,11 +141,24 @@ class lightSensor_threading:
          
 
        
-def main():      
+def main(): 
+   ''' 
+   each sensor is being called
+   '''
+   l_sensor0 = LightSensor(24,18)
+   l_sersor1 = LightSensor(23,17)
+   l_sensor2 = LightSensor(22,16)
+   l_sensor3 = LightSensor(25,12)
+   '''
+   each value of the sensor is being retuend then printed
+   '''
    val_sensor0 = l_sensor0.light_Sensor()
    val_sensor1 = l_sensor1.light_Sensor()
    val_sensor2 = l_sensor2.light_Sensor()
    val_sensor3 = l_sensor3.light_Sensor()
+   '''
+   what each value is being sent to the manchine
+   '''
    print(val_sensor0)
    print(val_sensor1)
    print(val_sensor2)
@@ -152,15 +172,15 @@ if __name__ == "___main___":
     l_Sensor2=0
     l_Sensor3=0
 
-
+    l_sensor0.reset()
+    l_sensor1.reset()
+    l_sensor2.reset()
+    l_sensor3.reset()
+''' this is any artifact in which I need to find out how it workes
 GPIO.add_event_callback(l_Sensor0 , t1)
 GPIO.add_event_callback(l_Sensor1 , t2)
 GPIO.add_event_callback(l_Sensor2 , t3)
 GPIO.add_event_callback(l_Sensor3 , t4)
+'''
 
 
-
-l_sensor0.reset()
-l_sensor1.reset()
-l_sensor2.reset()
-l_sensor3.reset()
