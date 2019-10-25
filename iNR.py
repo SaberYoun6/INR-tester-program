@@ -78,7 +78,6 @@ class LightSensor(object):
                    final_time = time.perf_counter()
                    delta_time = final_time - init_time
                    GPIO.output(self.light,GPIO.LOW)
-                   break
             elif .01<= refc and refc <= .99:
                led_on
                time.sleep(.000000001)
@@ -87,13 +86,11 @@ class LightSensor(object):
                    final_time = time.perf_counter()
                    delta_time = final_time - init_time
                    GPIO.output(self.light,GPIO.LOW)
-                   break
             else: 
                GPIO.output(self.light,GPIO.LOW)
                value = False
                final_time = time.perf_counter()
                delta_time = final_time - init_time
-               break
         return delta_time
 #### this is the class that will be defined as how the device will calculate the ptt\ptNorm  values
 class ptt_and_norm_reader(object):
