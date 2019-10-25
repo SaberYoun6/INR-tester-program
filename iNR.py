@@ -20,7 +20,7 @@ import time
 import RPi.GPIO as GPIO
 import collections
 from datetime import timedelta
-from threading import Thread, Lock
+from threading
 
 
 #### variables ####
@@ -90,51 +90,74 @@ class LightSensor(object):
                break
         return delta_time
 #### this is the class that will be definedas how the device will calculate the ptt\ptNorm  values
-class ptt_and_norm_reader:
-    def __init__(self,light, reflection):
+class ptt_and_norm_reader(object):
+    def __init__(self, light, reflection):
         self.light = light
         self.reflection = reflection
-    def ptt_and_norm_draw(self):
-        l_senor=LightSenor(self.light,self.reflection)
-        print(" PTT\PTNorm LightSenors array in use")
-        light_senor=l_sensor.light_Sensor()
-        l_senor.reset()
-        return light_senor
-    def ptt_and_norm(self):
-        pt_drawing = self.ptt_and_norm_draw()
-        for i in pt_drawing:         
-          return pt_drawing
+    def ptt_draw(self):
+        l_sensor=LightSensor(self.light,self.reflection)
+        print(" PTT LightSenors array in use")
+        light_sensor=l_sensor.light_Sensor()
+        l_sensor.reset()
+        return light_sensor
+    def norm_draw(self):
+        l_sensor=LightSensor(self.light,self.reflection)
+        print("Norm LightSenors array in use")
+        light_sensor=l_sensor.light_Sensor()
+        l_sensor,reset()
+        return light_sensor
+    def ptt_reader(self):
+        ask = 0 
+        pt_drawing = self.ptt_draw()
+        for i in pt_drawing:
+            ask=i
+        return pt_drawing
+    def norm_reader(self):
+        ask = 0
+        norm_drawing = self.norm_draw()
+        for i in norm_drawing:
+            ask=i
+        return norm_drawing
 
-def LightSensor_thread(*args):
-       t = Thread(target =light_Sensor(), args=args)
-       t.start()
+ptt_t0  = threading.Thread(target = light_Sensor.LightSensor args=(24,18))
+norm_t0 = threading.Thread(target = light_Sensor.LightSensor args=(23,17))
+ptt_t1  = threading.Thread(target = light_Sensor.LightSensor args=(22,16))
+norm_t1 = threading.THread(target = light_Sensor.LightSensor args=(25,12)) 
+class lightSensor_threading:
+     def locking_lightSensor():
+         r_lock = threading.Rlock()
+         with r_lock:
+         
+         
+
+       
+def main():      
+   val_sensor0 = l_sensor0.light_Sensor()
+   val_sensor1 = l_sensor1.light_Sensor()
+   val_sensor2 = l_sensor2.light_Sensor()
+   val_sensor3 = l_sensor3.light_Sensor()
+   print(val_sensor0)
+   print(val_sensor1)
+   print(val_sensor2)
+   print(val_sensor3)
+
+if __name__ == "___main___":
+    main()
+
+    l_Sensor0=0
+    l_Sensor1=0
+    l_Sensor2=0
+    l_Sensor3=0
 
 
-main()
-   
-GPIO.add_event_callback((l_sensor0) , LightSensor_thread())
-GPIO.add_event_callback((l_sensor1) , LightSensor_thread())
-GPIO.add_event_callback((l_sensor2) , LightSensor_thread())
-GPIO.add_event_callback((l_sensor3) , LightSensor_thread())
+GPIO.add_event_callback(l_Sensor0 , t1)
+GPIO.add_event_callback(l_Sensor1 , t2)
+GPIO.add_event_callback(l_Sensor2 , t3)
+GPIO.add_event_callback(l_Sensor3 , t4)
+
+
 
 l_sensor0.reset()
 l_sensor1.reset()
 l_sensor2.reset()
 l_sensor3.reset()
-
-def main():      
-   l_sensor0  =  LightSensor(24,18)
-   l_sensor1  =  LightSensor(25,17)
-   l_sensor2  =  LightSensor(24,16)
-   l_sensor3  =  LightSensor(27,22)
-   val_sensor0 = l_sensor0.light_Sensor()
-   val_sensor1 = l_sensor1.light_Sensor()
-   val_sensor2 = l_sensor2.light_Sensor()
-   val_sensor3 = l_sensor3.light_Sensor()
-
-
-    #ptt_reader0=ptt_and_norm_reader(24,18) #(light,senor)  ,ptt_reader1=,ptt_and_norm_reader(8,40)
-    #result0 = ptt_reader0.ptt_and_norm()#,result1= ,ptt_reader2.ptt_and_norm()
-    #print(result0)
-
-# This should return the lightsensor arrays
