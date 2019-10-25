@@ -60,6 +60,9 @@ class LightSensor(object):
         GPIO.setup(self.reflection,GPIO.IN)
         init_time= time.perf_counter()
         timer1=time.time()
+        '''
+        this while is here to send it through the value to reu
+        '''
         while ( 1  or  value == True):
             refc= GPIO.input(self.reflection)
             led_on
@@ -89,7 +92,7 @@ class LightSensor(object):
                delta_time = final_time - init_time
                break
         return delta_time
-#### this is the class that will be definedas how the device will calculate the ptt\ptNorm  values
+#### this is the class that will be defined as how the device will calculate the ptt\ptNorm  values
 class ptt_and_norm_reader(object):
     def __init__(self, light, reflection):
         self.light = light
@@ -122,7 +125,7 @@ class ptt_and_norm_reader(object):
 ptt_t0  = threading.Thread(target = light_Sensor.LightSensor args=(24,18))
 norm_t0 = threading.Thread(target = light_Sensor.LightSensor args=(23,17))
 ptt_t1  = threading.Thread(target = light_Sensor.LightSensor args=(22,16))
-norm_t1 = threading.THread(target = light_Sensor.LightSensor args=(25,12)) 
+norm_t1 = threading.Thread(target = light_Sensor.LightSensor args=(25,12)) 
 class lightSensor_threading:
      def locking_lightSensor():
          r_lock = threading.Rlock()
