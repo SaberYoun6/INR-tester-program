@@ -10,7 +10,7 @@ __author__ = "Samuel Young"
 __copyright__ = " Copyright 2016, The INR project"
 __credits__ = ["Samuel Young"]
 __license__ = "GPL"
-__version__ = "0.0.8"
+__version__ = "0.0.812"
 __maintianer__ = "Samuel Young"
 __email__ = "samuel.young.103@gmail.com"
 __status__ = "beta"
@@ -79,7 +79,7 @@ class LightSensor(object):
             else:
                 GPIO.output(self.light, GPIO.LOW)
                 change = finish - time
-                value = False
+                value = True
         return change
 
 
@@ -139,8 +139,8 @@ def main():
 
     l_sensor0.reset()
 
-
-main()
+if __name__ == "__main__":
+     main()
 ''' this is any artifact in which I need to find out how it 
 GPIO.add_event_callback(l_Sensor0 , t1)
 GPIO.add_event_callback(l_Sensor1 , t2)
