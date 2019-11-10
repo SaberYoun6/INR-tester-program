@@ -73,7 +73,7 @@ class LightSensor(object):
         
         timer = time.perf_counter()
         '''
-        This  that the time should be below 90.0 second or until the value does not read as true  
+        This  that the time should be below 90.0 second or until the value does not read as true  it must be reaching the value at the end of the rainbow
         '''
         while (time.perf_counter() - timer) < 90.0 or value is not True:
             reflector
@@ -91,7 +91,7 @@ class LightSensor(object):
             else:
                 GPIO.output(self.light, GPIO.LOW)
                 change = finish - time
-                value = false
+                value = False
                 break
         return change
 
