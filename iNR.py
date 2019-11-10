@@ -47,18 +47,30 @@ class LightSensor(object):
     def sensor(self):
         change = 0.0
         value = True
+
         print("setting up  pins")
         GPIO.setup(self.reflection, GPIO.OUT)
         GPIO.output(self.reflection, GPIO.LOW)
         GPIO.setup(self.light, GPIO.OUT)
+        
+        
         # led_off= GPIO.output(self.light,GPIO.LOW)
         # time.sleep(7.5)
+        
+        
         print("testing light")
+        
+        
         on = GPIO.output(self.light, GPIO.HIGH)
         time.sleep(1)
+        
+        
         print("Setup the input pin")
+        
         GPIO.setup(self.reflection, GPIO.IN)
+        
         reflector = GPIO.input(self.reflection)
+        
         timer = time.perf_counter()
         '''
         This  that the time should be below 90.0 second or until the value does not read as true  
@@ -79,7 +91,8 @@ class LightSensor(object):
             else:
                 GPIO.output(self.light, GPIO.LOW)
                 change = finish - time
-                value = True
+                value = false
+                break
         return change
 
 

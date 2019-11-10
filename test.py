@@ -8,8 +8,9 @@ from iNR import LightSensor
 l_sensors = []
 
 def main():
-   light = LightSensor(24,18)
-   print(light.sensor())
+   light     = LightSensor(24,18)
+   val_light = light.sensor()
+   print(val_light)
    light.reset()
 
 
