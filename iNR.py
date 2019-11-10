@@ -10,7 +10,7 @@ __author__ = "Samuel Young"
 __copyright__ = " Copyright 2016, The INR project"
 __credits__ = ["Samuel Young"]
 __license__ = "GPL"
-__version__ = "0.0.7"
+__version__ = "0.0.8"
 __maintianer__ = "Samuel Young"
 __email__ = "samuel.young.103@gmail.com"
 __status__ = "beta"
@@ -61,9 +61,9 @@ class LightSensor(object):
         reflector = GPIO.input(self.reflection)
         timer = time.perf_counter()
         '''
-        This  that the time should be below 90.0 second or until the value read true  
+        This  that the time should be below 90.0 second or until the value does not read as true  
         '''
-        while (time.perf_counter - timer) < 90.0 or True == value:
+        while (time.perf_counter - timer) < 90.0 or value is not True:
             reflector
             on
             time.sleep(.0000000001)
@@ -142,7 +142,7 @@ def main():
 
 if __name__ == "___main___":
     main()
-''' this is any artifact in which I need to find out how it workes
+''' this is any artifact in which I need to find out how it 
 GPIO.add_event_callback(l_Sensor0 , t1)
 GPIO.add_event_callback(l_Sensor1 , t2)
 GPIO.add_event_callback(l_Sensor2 , t3)

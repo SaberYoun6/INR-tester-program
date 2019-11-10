@@ -92,3 +92,7 @@ ENV/
 .swp
 .swo
 .swn
+
+
+# files in which are add because of pycharm 
+.xml
