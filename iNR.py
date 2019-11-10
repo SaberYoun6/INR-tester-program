@@ -19,18 +19,15 @@ __status__ = "beta"
 import time
 import RPi.GPIO as GPIO
 import collections
-from datetime import timedelta
-from threading
+#from datetime import timedelta
+#from threading
 
 
 #### variables ####
-inr = 0.0
-value=0
-counters=0
-i=0
 #ptdrawc2= input('INR')
 #ptnomdrawc2= int(ptdrawc2)
 ##### GPIO  #######
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
@@ -40,13 +37,15 @@ class LightSensor(object):
     def __init__(self, light, reflection):
         self.light = light
         self.reflection= reflection
-    def reset(self):
+    
+    def reset():
        GPIO.cleanup()
        print("Gpio Cleanup has been done")
+    
+    
     def light_Sensor(self):
-        count = 0
         delta_time = 0.0
-        value= False
+        value= True
         print("setting up  pins")
         GPIO.setup(self.reflection, GPIO.OUT)
         GPIO.output(self.reflection,GPIO.LOW)
@@ -59,38 +58,26 @@ class LightSensor(object):
         print("Setup the input pin")
         GPIO.setup(self.reflection,GPIO.IN)
         init_time= time.perf_counter()
-        timer1=time.time()
         '''
-        This while is here to send it through the to try and find a value that will be at 
+        This  that the time should be below 90.0 second or until the value read true  
         '''
-        while ( 1  or  value == True):
+        while ( (time.perf_counter - init_time) < 90.0   or  value == True):
             refc= GPIO.input(self.reflection)
             led_on
-            time.sleep(.000000001)
+            time.sleep(.0000000001)
             final_time = time.perf_counter()
-            timer2 = time.time()
-            count = count + 1
             if refc == 0:
                led_on
-               timer2=time.time()
-               if count == 359901:
-                   value = False
-                   final_time = time.perf_counter()
-                   delta_time = final_time - init_time
-                   GPIO.output(self.light,GPIO.LOW)
+               time.sleep(.0000000001)
+               delta_time=final_time-init_time
             elif .01<= refc and refc <= .99:
                led_on
-               time.sleep(.000000001)
-               if count == 359901:
-                   value = False
-                   final_time = time.perf_counter()
-                   delta_time = final_time - init_time
-                   GPIO.output(self.light,GPIO.LOW)
+               time.sleep(.0000000001)
+               delta_time=final_time -init_time
             else: 
                GPIO.output(self.light,GPIO.LOW)
-               value = False
-               final_time = time.perf_counter()
                delta_time = final_time - init_time
+               value = False
         return delta_time
 #### this is the class that will be defined as how the device will calculate the ptt\ptNorm  values
 class ptt_and_norm_reader(object):
@@ -120,17 +107,6 @@ class ptt_and_norm_reader(object):
 '''
 these are the four threads that I am trying to run to get any average for the individual 
 '''
-ptt_t0  = threading.Thread(target = light_Sensor.LightSensor args=(24,18))
-norm_t0 = threading.Thread(target = light_Sensor.LightSensor args=(23,17))
-ptt_t1  = threading.Thread(target = light_Sensor.LightSensor args=(22,16))
-norm_t1 = threading.Thread(target = light_Sensor.LightSensor args=(25,12)) 
-class lightSensor_threading:
-     def locking_lightSensor():
-         r_lock = threading.Rlock()
-         with r_lock:
-         
-         
-
        
 def main(): 
    ''' 
@@ -138,35 +114,27 @@ def main():
    '''
    l_sensor0 = LightSensor(24,18)
    l_sersor1 = LightSensor(23,17)
-   l_sensor2 = LightSensor(22,16)
-   l_sensor3 = LightSensor(25,12)
+  # l_sensor2 = LightSensor(22,16)
+  # l_sensor3 = LightSensor(25,12)
    '''
    each value of the sensor is being retuend then printed
    '''
    val_sensor0 = l_sensor0.light_Sensor()
    val_sensor1 = l_sensor1.light_Sensor()
-   val_sensor2 = l_sensor2.light_Sensor()
-   val_sensor3 = l_sensor3.light_Sensor()
+   #val_sensor2 = l_sensor2.light_Sensor()
+   #val_sensor3 = l_sensor3.light_Sensor()
    '''
    what each value is being sent to the manchine
    '''
    print(val_sensor0)
    print(val_sensor1)
-   print(val_sensor2)
-   print(val_sensor3)
+   #print(val_sensor2)
+   #print(val_sensor3)
+   
+   l_senor0.reset()
 
 if __name__ == "___main___":
     main()
-
-    l_Sensor0=0
-    l_Sensor1=0
-    l_Sensor2=0
-    l_Sensor3=0
-
-    l_sensor0.reset()
-    l_sensor1.reset()
-    l_sensor2.reset()
-    l_sensor3.reset()
 ''' this is any artifact in which I need to find out how it workes
 GPIO.add_event_callback(l_Sensor0 , t1)
 GPIO.add_event_callback(l_Sensor1 , t2)
