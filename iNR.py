@@ -38,7 +38,7 @@ class LightSensor(object):
         self.light = light
         self.reflection = reflection
 
-    @staticmethod
+   # @staticmethod this method causes any error 
     def reset(self):
         GPIO.cleanup()
         print("Gpio Cleanup has been done")
@@ -63,7 +63,7 @@ class LightSensor(object):
         '''
         This  that the time should be below 90.0 second or until the value does not read as true  
         '''
-        while (time.perf_counter - timer) < 90.0 or value is not True:
+        while (time.perf_counter() - timer) < 90.0 or value is not True:
             reflector
             on
             time.sleep(.0000000001)
