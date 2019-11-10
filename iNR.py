@@ -140,8 +140,7 @@ def main():
     l_sensor0.reset()
 
 
-if __name__ == "___main___":
-    main()
+main()
 ''' this is any artifact in which I need to find out how it 
 GPIO.add_event_callback(l_Sensor0 , t1)
 GPIO.add_event_callback(l_Sensor1 , t2)
