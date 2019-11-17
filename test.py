@@ -9,8 +9,8 @@ l_sensors = []
 
 def main():
    light     = LightSensor(24,18)
-   val_light = light.sensor()
-   print(val_light)
+   value= light.sensor()
+   print(light)
    light.reset()
 
 
