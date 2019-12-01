@@ -10,7 +10,7 @@ __author__ = "Samuel Young"
 __copyright__ = " Copyright 2016, The INR project"
 __credits__ = ["Samuel Young"]
 __license__ = "GPL"
-__version__ = "0.0.812"
+__version__ = "0.0.815"
 __maintianer__ = "Samuel Young"
 __email__ = "samuel.young.103@gmail.com"
 __status__ = "beta"
@@ -46,7 +46,7 @@ class LightSensor(object):
     @property
     def sensor(self):
         change = 0.0
-        value = True
+        value = 0
 
         print("setting up  pins")
         GPIO.setup(self.reflection, GPIO.OUT)
@@ -75,25 +75,27 @@ class LightSensor(object):
         '''
         This  that the time should be below 90.0 second or until the value does not read as true  it must be reaching the value at the end of the rainbow
         '''
-        while (time.perf_counter() - timer) < 90.0 or value is not True:
+        while (time.perf_counter() - timer) <= 90.0 or (value == 1):
+            finish = time.perf_counter()
             reflector
             on
             time.sleep(.0000000001)
-            finish = time.perf_counter()
             if reflector == 0:
                 on
                 time.sleep(.0000000001)
+                value 
                 change = finish - timer
-            elif .01 <= reflector <= .99:
+            elif .01 <= reflector and reflector <= .99:
                 on
                 time.sleep(.0000000001)
-                change = finish - timer
+                value 
+                change = finish - timer 
             else:
                 GPIO.output(self.light, GPIO.LOW)
-                change = finish - time
-                value = False
+                change = finish - timer
+                value = 1
                 break
-        return change
+        return abs(change)
 
 
 #### this is the class that will be defined as how the device will calculate the ptt\ptNorm  values
