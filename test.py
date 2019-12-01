@@ -16,6 +16,7 @@ host = socket.gethostname():
 creationfile = open('~/' + host,"r")
 
 def main():
+<<<<<<< HEAD
    print("")
 
    if !(pathlib.path("~/"+ host): 
