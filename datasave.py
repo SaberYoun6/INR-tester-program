@@ -18,8 +18,8 @@ from stored import storage
 
 ###variable ###
 host = socket.gethostname()
-encrypteddict = {}
-f= MultiFernet(key,key2,key3)
+encrypted_dict = {}
+f_key_reader= MultiFernet(key,key2,key3)
 
 
 
@@ -28,33 +28,34 @@ f= MultiFernet(key,key2,key3)
 
 ###intial setup of files
 
-class initalSavedData(object):
-   def __init__(self , creationfile = host, ):
-      self.creationfile =creationfile
-   def initial_input(self,number,number1):
-      f = open("~/inr/.",self.creationfile,"w+")
-       = self.informationFile()
+class InitalSavedData(object):
+   def __init__(self, creation_file = host, ):
+      self.creation_file =creation_file
+   def initial_input(self,number number1:
+      new_host = "~/inr/."+ self.creation_file
+      f = open(new_host, "w+")
       f.write("%s\n %.1f,%.1f\n"%(f.encrypt(creationfile),f.encrypt(number),f.encrypt(number1)))
       f.close()
    def intial_test(self,value1,value2,value3,value4):
-      encrypteddict[f.encrypt(datatime.date)]=f.encrypt(value1)
-      encrypteddict[f.encrypt(datatime.date)]=f.encrypt(value2)
+      encrypted_dict[f.encrypt(datatime.date)]=f.encrypt(value1)
+      encrypted_dict[f.encrypt(datatime.date)]=f.encrypt(value2)
       '''
       encrpteddict[datatime.date]=value3
       encrpteddict[datatime.time]=value4
       '''
-      f= open("~/inr/.",self.creationfile,"a+")
+      new_host="~/inr/."+ self.creation_file
+      f= open(new_host,"a+")
 
       f.write("encrypteddict")
-   def read_encodevalues(encrypteddict):
+   def read_encodevalues(self):
       try: 
-         f= open("~/inr/.",self.creationfile,"r")
+         f= open("~/inr/.",self.creation_file,"r")
          f.read()
-      except FileNotFoundError a:
+      except FileNotFoundError:
          print("File wasn't created")
       finally:
          
-       for k,i in range(len(encrypteddict)i):
+       for k,i in range(len(self)i):
            print("%s,%s " %(f.decrypt(k),f.decrypt(i)))
 
 
