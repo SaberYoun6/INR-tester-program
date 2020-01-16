@@ -89,9 +89,9 @@ ENV/
 .ropeproject
 
 #edit for swap from vim
-.swp
-.swo
-.swn
+.*.swp
+.*.swo
+.*.swn
 
 
 # files in which are add because of pycharm 
