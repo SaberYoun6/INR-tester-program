@@ -53,6 +53,8 @@ def main():
           first_inr_user_value=input()
           print("Enter your new high range for INR")
           second_inr_user_value= input()
+          first_inr_user_value  = np.float128(first_inr_user_value)
+          second_inr_user_value = np.float128(second_inr_user_value)
           ##copy method to transfer the new items over stored.py
           ## I need a way to
        elif item == 1:
@@ -66,24 +68,40 @@ def main():
           val_light2 = light2.__iRDectector__()
           val_light3 = light3.__iRDectector__()
           print("test: the light values v1:%.2f , v2:%.2f , v3:%.2f , v4:%.2f " %(val_light0,val_light1,val_light2,val_light3))
-
-
-      elif (item == 7):
+       elif item ==2:
+          light = IrSensor(24,18)
+          val_light = light.__iRDectector__()
+          print('testing one sensor at a time %f'%(val_light))
+          continue
+       elif item ==3:
+          light     = IrSensor(23,17)
+          val_light =light.__iRDectector__()
+          print('testing one sensor at a time %f'%(val_light))
+          continue
+       elif item ==4:
+          light     = IrSensor(22,16)
+          val_light =light.__iRDectector__()
+          print('testing one sensor at a time %f'%(val_light))
+          continue
+       elif item ==5:
+          light     = IrSensor(25,12)
+          val_light =light.__iRDectector__()
+          print('testing one sensor at a time %f'%(val_light))
+          continue
+       elif item ==6:
+          continue
+       elif (item == 7):
          light0 ,light1 ,light2 ,light3    = IrSensor(24,18), IrSensor(23,17), IrSensor(22,16), IrSensor(25,12)
          val_light0,val_light1,val_light2,val_light3 = light0.__iRDectector__(),light1.__iRDectector__(),light2.__iRDectector__(),light3.__iRDectector__()
-      print("V0: %.2f, V1: %.2f, V2: %.2f, V3: %.2f" %(val_light0,val_light1,val_light2,val_light3))
-   elif(item ==8):
-
-   else:
-      print("closing program")
-
-
-
-   item = int(item)
-   item = input()
-
-
-
+         print("V0: %.2f, V1: %.2f, V2: %.2f, V3: %.2f" %(val_light0,val_light1,val_light2,val_light3))
+         
+      elif(item ==8):
+         continue
+      else:
+         print("closing program")
+      item = int(item)
+      item = input()
+   print("cloing program")
 
 
 
