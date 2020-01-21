@@ -18,6 +18,7 @@ __status__ = "beta"
 #### dependencies #####
 from typing import Any
 import time
+from multiprocessing import Locks
 from gpiozero import LED, LightSensor
 import collections
 
@@ -72,21 +73,27 @@ class PttNormThreadLocks(object):
       self.IrSensor1 = IrSensor1
 
    def PttLocks(self):
+      L = self.l
+      L.aquire()
       Ir0=IrSensor(self.LightSensor0, self.IrSensor0)
       ir0 = Ir0.__iRDectector__()
       Ir1=IrSensor(self.LightSensor1, self.IrSensor1)
       ir1 = Ir1.__iRDectector__()
+      L.release()
       return [ir0, ir1]
    def NormLocks(self):
+      L = self.l
+      L.aquire()
       norm_Ir0 = IrSensor(self.LightSensor0,self.IrSensor0)
       norm_ir0= norm_Ir0.__iRDectector__()
       norm_Ir1 = IrSensor(self.LightSensor1,self.IrSensor1)
       norm_ir1 = norm_Ir1.__iRDectector__()
+      L.release()
       return [norm_Ir0, norm_Ir1]
 
 
 class ptt_and_norm_reader(object):
-    def __init__(self.):
+    def __init__(self,lock,data):
         self.light = light
         self.reflection = reflection
     def ptt_draw(self):
