@@ -7,12 +7,14 @@
 
 
 ## this will be the main test file until I have a more complete version then this will probably become the main file 
-#dependenices
-from iNR import IrSensor
+#dependenicesL
+from iNR import IrSensor, PttNormThreadLocks
 import socket 
 import pathlib
 from datasave import InitalSavedData
 import stored
+
+from multiprocessing import Process, Lock
 import numpy as np
 #gobal varaibles
 l_sensors = []
@@ -89,13 +91,20 @@ def main():
           print('testing one sensor at a time %f'%(val_light))
           continue
        elif item ==6:
+          lock = Lock()
+          test_ptt=PttNormThreadLock(lock,24,18,23,17)
+
+          for num in range(180):
+             Process( target=PttLocks, args=test_ptt).start()
           continue
+
        elif (item == 7):
          light0 ,light1 ,light2 ,light3    = IrSensor(24,18), IrSensor(23,17), IrSensor(22,16), IrSensor(25,12)
          val_light0,val_light1,val_light2,val_light3 = light0.__iRDectector__(),light1.__iRDectector__(),light2.__iRDectector__(),light3.__iRDectector__()
          print("V0: %.2f, V1: %.2f, V2: %.2f, V3: %.2f" %(val_light0,val_light1,val_light2,val_light3))
          
       elif(item ==8):
+         
          continue
       else:
          print("closing program")
