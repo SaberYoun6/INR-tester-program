@@ -64,7 +64,7 @@ class IrSensor(object):
 
 #### this is the class that will be defined as how the device will calculate the ptt\ptNorm  values
 class PttNormThreadLocks(object):
-   def __init__(l,LightSensor0,IrSensor0,LightSensor1,LightSensor1):
+   def __init__(self,l,LightSensor0,IrSensor0,LightSensor1,LightSensor1):
       self.l = l
       self.LightSensor0 = LightSensor0
       self.IrSensor0= IrSensor0
