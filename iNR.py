@@ -35,28 +35,32 @@ class IrSensor(object):
     @property
     def __iRDectector__(self):
         change_time = 0.0
+        
         read_value = False
 
         print("setting up  pins")
+
         ir_light = LED(self.light)
-
-        print("testing light")
-
-        print("Setup the input pin")
 
         start_timer = time.perf_counter()
         '''
-        This  that the time should be below 90.0 second or until the value does not read as true  it must be reaching the value at the end of the rainbow
+        This  that the time should be below 90.0 second or until the value does read as true  it must be reaching the value 
         '''
         while (time.perf_counter() - start_timer) <= 90.0 or (read_value is True):
             finish_timer = time.perf_counter()
+            #this is me setting up the ligth reflection with a certain threshold
             i_r_detection = LightSensor(self.reflection, threshold=1.0)
+            # this turn the light on for test reason
             ir_light.on()
+            #this is a call to wait for light 
             i_r_detection.wait_for_light()
-            print(iRdectection)
+            # this should allow for a better print out
+            print(i_r_detection)
+            # it threshold is less then the intital call then it wouldn't detect
             if i_r_detection <= 1.0:
                 change_time = finish_timer - start_timer
                 read_value = False
+            #if the threshold is greater then the value it will return with a value of the changes
             else:
                 change_time = finish_timer - start_timer
                 read_value = True
@@ -81,19 +85,10 @@ class PttNormThreadLocks(object):
       ir1 = Ir1.__iRDectector__()
       L.release()
       return [ir0, ir1]
-   def NormLocks(self):
-      L = self.l
-      L.aquire()
-      norm_Ir0 = IrSensor(self.LightSensor0,self.IrSensor0)
-      norm_ir0= norm_Ir0.__iRDectector__()
-      norm_Ir1 = IrSensor(self.LightSensor1,self.IrSensor1)
-      norm_ir1 = norm_Ir1.__iRDectector__()
-      L.release()
-      return [norm_Ir0, norm_Ir1]
 
 
 class ptt_and_norm_reader(object):
-    def __init__(self,lock,data):
+    def __init__(self,lock,data,data1):
         self.light = light
         self.reflection = reflection
     def ptt_draw(self):
