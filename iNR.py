@@ -16,9 +16,7 @@ __email__ = "samuel.young.103@gmail.com"
 __status__ = "beta"
 
 #### dependencies #####
-from typing import Any
 import time
-from multiprocessing import Locks
 from gpiozero import LED, LightSensor
 import collections
 
@@ -49,7 +47,7 @@ class IrSensor(object):
         while (time.perf_counter() - start_timer) <= 90.0 or (read_value is True):
             finish_timer = time.perf_counter()
             #this is me setting up the ligth reflection with a certain threshold
-            i_r_detection = LightSensor(self.reflection, threshold=1.0)
+            i_r_detection = LightSensor(self.reflection, threshold=.9999999999)
             # this turn the light on for test reason
             ir_light.on()
             #this is a call to wait for light 
@@ -57,7 +55,7 @@ class IrSensor(object):
             # this should allow for a better print out
             print(i_r_detection)
             # it threshold is less then the intital call then it wouldn't detect
-            if i_r_detection <= 1.0:
+            if i_r_detection == 0 :
                 change_time = finish_timer - start_timer
                 read_value = False
             #if the threshold is greater then the value it will return with a value of the changes
@@ -69,7 +67,7 @@ class IrSensor(object):
 
 #### this is the class that will be defined as how the device will calculate the ptt\ptNorm  values
 class PttNormThreadLocks(object):
-   def __init__(self,l,LightSensor0,IrSensor0,LightSensor1,LightSensor1):
+   def __init__(self,l,LightSensor0,IrSensor0,LightSensor1,IrSensor1):
       self.l = l
       self.LightSensor0 = LightSensor0
       self.IrSensor0= IrSensor0
@@ -109,8 +107,6 @@ class ptt_and_norm_reader(object):
     def norm_reader(self):
         norm_drawing = self.norm_draw()
         return norm_drawing
-'''
-
 '''
 these are the four threads that I am trying to run to get any average for the individual 
 '''
