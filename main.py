@@ -27,24 +27,23 @@ def main():
    item=0
    print("checking to see if you have the file")
 
-   #if !Path(paths):
-   #    item =1 
+   if not (Path(paths)):
+       item = 1 
 
 
-    #   while item == 1 :
-    #       print("Enter the lower range of INR")
-    #       first_inr_user_value  = input()
-    #       print("Enter the high range of INR")
-    #       second_inr_user_value = input()
-    #       first_inr_user_value  = np.longdouble(first_inr_user_value)
-    #       second_inr_user_value = np.longdouble(second_inr_user_value)
-    #       print("/n")
-    #       print("Verifying that the data is correct %.1f , %.1f/n"% (first_inr_user_value,second_inr_user_value))
-    #       creation_file.write("Verifying that the data is correct %.1f , %.1f/n"% (first_inr_user_value,second_inr_user_value))
-    #       print("press 1 to continue")
+       while item == 1 :
+           print("Enter the lower range of INR")
+           first_inr_user_value  = input()
+           print("Enter the high range of INR")
+           second_inr_user_value = input()
+           first_inr_user_value  = np.longdouble(first_inr_user_value)
+           second_inr_user_value = np.longdouble(second_inr_user_value)
+           print("/n")
+           print("Verifying that the data is correct %.1f , %.1f/n"% (first_inr_user_value,second_inr_user_value))
+           creation_file.write("Verifying that the data is correct %.1f , %.1f/n"% (first_inr_user_value,second_inr_user_value))
+           print("press 1 to continue")
 
    print("Entering 9 will close the program, E 0 will allow the user to change the INR levels, enter 1")
-   
    item =input()
    items = int(item)
 
