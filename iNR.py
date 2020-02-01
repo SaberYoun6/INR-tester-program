@@ -46,20 +46,19 @@ class IrSensor(object):
         '''
         while (time.perf_counter() - start_timer) <= 90.0 or (read_value is True):
             finish_timer = time.perf_counter()
+            print("Running with senors")
             #this is me setting up the ligth reflection with a certain threshold
-            i_r_detection = LightSensor(self.reflection, threshold=.9999999999)
+            i_r_detection = LightSensor(self.reflection, threshold=.99)
             # this turn the light on for test reason
             ir_light.on()
             #this is a call to wait for light 
-            i_r_detection.wait_for_light()
             # this should allow for a better print out
-            print(i_r_detection)
             # it threshold is less then the intital call then it wouldn't detect
-            if i_r_detection == 0 :
+            if i_r_detection.wait_for_dark() :
                 change_time = finish_timer - start_timer
                 read_value = False
             #if the threshold is greater then the value it will return with a value of the changes
-            else:
+            elif i_r_dectection.wait_for_light(.001):
                 change_time = finish_timer - start_timer
                 read_value = True
         return abs(change_time)
@@ -85,6 +84,8 @@ class PttNormThreadLocks(object):
       return [ir0, ir1]
 
 
+
+'''
 class ptt_and_norm_reader(object):
     def __init__(self,lock,data,data1):
         self.light = light
@@ -107,11 +108,8 @@ class ptt_and_norm_reader(object):
     def norm_reader(self):
         norm_drawing = self.norm_draw()
         return norm_drawing
-'''
 these are the four threads that I am trying to run to get any average for the individual 
-'''
 
-'''
 def main():
    each sensor is being called
 

@@ -48,7 +48,7 @@ def main():
    item =input()
    items = int(item)
 
-   while (items <= 9):
+   while (items < 10):
       
 
       if items == 0:
