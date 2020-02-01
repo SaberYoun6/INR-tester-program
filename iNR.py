@@ -10,98 +10,84 @@ __author__ = "Samuel Young"
 __copyright__ = " Copyright 2016, The INR project"
 __credits__ = ["Samuel Young"]
 __license__ = "GPL"
-__version__ = "0.0.815"
+__version__ = "0.0.845"
 __maintianer__ = "Samuel Young"
 __email__ = "samuel.young.103@gmail.com"
 __status__ = "beta"
-#### dependencies ##### 
 
+#### dependencies #####
 import time
-import RPi.GPIO as GPIO
+from gpiozero import LED, LightSensor
 import collections
+
 
 # from datetime import timedelta
 # from threading
 
 
-#### variables ####
-# ptdrawc2= input('INR')
-# ptnomdrawc2= int(ptdrawc2)
-##### GPIO  #######
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-
-
-class LightSensor(object):
+class IrSensor(object):
     def __init__(self, light, reflection):
         self.light = light
         self.reflection = reflection
 
-   # @staticmethod this method causes any error 
-    def reset(self):
-        GPIO.cleanup()
-        print("Gpio Cleanup has been done")
-
     @property
-    def sensor(self):
-        change = 0.0
-        value = 0
+    def __iRDectector__(self):
+        change_time = 0.0
+        
+        read_value = False
 
         print("setting up  pins")
-        GPIO.setup(self.reflection, GPIO.OUT)
-        GPIO.output(self.reflection, GPIO.LOW)
-        GPIO.setup(self.light, GPIO.OUT)
-        
-        
-        # led_off= GPIO.output(self.light,GPIO.LOW)
-        # time.sleep(7.5)
-        
-        
-        print("testing light")
-        
-        
-        on = GPIO.output(self.light, GPIO.HIGH)
-        time.sleep(1)
-        
-        
-        print("Setup the input pin")
-        
-        GPIO.setup(self.reflection, GPIO.IN)
-        
-        reflector = GPIO.input(self.reflection)
-        
-        timer = time.perf_counter()
+
+        ir_light = LED(self.light)
+
+        start_timer = time.perf_counter()
         '''
-        This  that the time should be below 90.0 second or until the value does not read as true  it must be reaching the value at the end of the rainbow
+        This  that the time should be below 90.0 second or until the value does read as true  it must be reaching the value 
         '''
-        while (time.perf_counter() - timer) <= 90.0 or (value == 1):
-            finish = time.perf_counter()
-            reflector
-            on
-            time.sleep(.0000000001)
-            if reflector == 0:
-                on
-                time.sleep(.0000000001)
-                value 
-                change = finish - timer
-            elif .01 <= reflector and reflector <= .99:
-                on
-                time.sleep(.0000000001)
-                value 
-                change = finish - timer 
-            else:
-                GPIO.output(self.light, GPIO.LOW)
-                change = finish - timer
-                value = 1
-                break
-        return abs(change)
+        while (time.perf_counter() - start_timer) <= 90.0 or (read_value is True):
+            finish_timer = time.perf_counter()
+            print("Running with senors")
+            #this is me setting up the ligth reflection with a certain threshold
+            i_r_detection = LightSensor(self.reflection, threshold=.99)
+            # this turn the light on for test reason
+            ir_light.on()
+            #this is a call to wait for light 
+            # this should allow for a better print out
+            # it threshold is less then the intital call then it wouldn't detect
+            if i_r_detection.wait_for_dark() :
+                change_time = finish_timer - start_timer
+                read_value = False
+            #if the threshold is greater then the value it will return with a value of the changes
+            elif i_r_dectection.wait_for_light(.001):
+                change_time = finish_timer - start_timer
+                read_value = True
+        return abs(change_time)
 
 
 #### this is the class that will be defined as how the device will calculate the ptt\ptNorm  values
+class PttNormThreadLocks(object):
+   def __init__(self,l,LightSensor0,IrSensor0,LightSensor1,IrSensor1):
+      self.l = l
+      self.LightSensor0 = LightSensor0
+      self.IrSensor0= IrSensor0
+      self.LightSensor1 = LightSensor1
+      self.IrSensor1 = IrSensor1
+
+   def PttLocks(self):
+      L = self.l
+      L.aquire()
+      Ir0=IrSensor(self.LightSensor0, self.IrSensor0)
+      ir0 = Ir0.__iRDectector__()
+      Ir1=IrSensor(self.LightSensor1, self.IrSensor1)
+      ir1 = Ir1.__iRDectector__()
+      L.release()
+      return [ir0, ir1]
+
+
+
 '''
 class ptt_and_norm_reader(object):
-    def __init__(self, light, reflection):
+    def __init__(self,lock,data,data1):
         self.light = light
         self.reflection = reflection
     def ptt_draw(self):
@@ -122,31 +108,21 @@ class ptt_and_norm_reader(object):
     def norm_reader(self):
         norm_drawing = self.norm_draw()
         return norm_drawing
-'''
-
-'''
 these are the four threads that I am trying to run to get any average for the individual 
-'''
-
 
 def main():
-    '''
    each sensor is being called
-   '''
+
     l_sensor0 = LightSensor(24, 18)
     l_sensor1 = LightSensor(23, 17)
     # l_sensor2 = LightSensor(22,16)
     # l_sensor3 = LightSensor(25,12)
-    '''
    each value of the sensor is being retuend then printed
-   '''
     val_sensor0 = l_sensor0.sensor
     val_sensor1 = l_sensor1.sensor
     # val_sensor2 = l_sensor2.light_Sensor()
     # val_sensor3 = l_sensor3.light_Sensor()
-    '''
    what each value is being sent to the manchine
-   '''
     print(val_sensor0)
     print(val_sensor1)
     # print(val_sensor2)
@@ -156,7 +132,7 @@ def main():
 
 if __name__ == "__main__":
      main()
-''' this is any artifact in which I need to find out how it 
+this is any artifact in which I need to find out how it 
 GPIO.add_event_callback(l_Sensor0 , t1)
 GPIO.add_event_callback(l_Sensor1 , t2)
 GPIO.add_event_callback(l_Sensor2 , t3)
